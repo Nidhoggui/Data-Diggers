@@ -1,0 +1,43 @@
+Etapas para implementar o projeto:
+
+    I - Entender o algoritmo A* e como ele funciona para a busca de caminhos em grafos.
+        ( https://www.youtube.com/watch?v=s29WpBi2exw )
+
+    II - Implementar grafos em Java, utilizando estruturas de dados lista de adjacências.
+        (Classe Sala && Classe Caverna)
+
+    III - Implementar a lógica para gerar a caverna aleatória e preencher as informações das salas.
+        ()
+
+    IV - Implementar a lógica do jogo, incluindo as ações do jogador (ir para uma sala, pedir descrição da sala), o contador de tempo, a pontuação e a condição de vitória ou derrota.
+        (Classe Jogador && Classe Main)
+
+    V - Implementar o algoritmo A* para encontrar o caminho para a saída da caverna a cada ação do jogador.
+        (Ainda precisa encontrar uma aplicação crítica pra isso no jogo)
+
+    VI - Testar e depurar o jogo.
+
+------------------------------------------------------------------------------------------------------------------------
+
+Definição de classes:
+
+    Sala: contém a descrição da sala, seu conteúdo, se é uma saída e a lista de salas conectadas a ela.
+    Caverna: contém a lista de todas as salas e suas conexões(grafo).
+    Jogador: contém informações do jogador, como sua posição atual, pontuação e tempo restante.
+
+    Main: Jogo em si, número de rodadas e afins. No começo utilizar para testes.
+
+Implementação do algoritmo A*:
+
+    Será utilizado para encontrar o caminho mais curto entre a posição atual do jogador e a saída.
+        Cada sala pode ter um custo associado, que pode ser utilizado no algoritmo para calcular o caminho mais curto.
+
+Implementação das ações do jogador:
+
+    Para mover o jogador para uma sala conectada, basta atualizar sua posição atual.
+    Para descrever a sala atual, basta imprimir sua descrição e conteúdo.
+
+Implementação do tempo e pontuação:
+
+    O tempo restante é controlado por um contador de rodadas.
+    A pontuação do jogador pode ser atualizada a cada sala visitada ou item coletado.

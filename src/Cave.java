@@ -7,9 +7,9 @@ import java.util.HashMap;
 
 public class Cave 
 {
-	private ArrayList<Chamber> chambers;
-
-	public Cave(ArrayList<Chamber> chambers) {
+	private List<Chamber> chambers;
+	
+	public Cave(List<Chamber> chambers) {
 		super();
 		this.chambers = chambers;
 	}
@@ -51,11 +51,14 @@ public class Cave
 	
 	public void listChambers() 
 	{
-	    for (Chamber chamber : chambers) {
+	    for (Chamber chamber : chambers) 
+	    {
 	        System.out.println("Description: " + chamber.getDescription());
 	        System.out.println("Content: " + chamber.getContent());
 	        System.out.println("Exit Status: " + chamber.isExit());
-	        System.out.println("Connections: " + chamber.getConnections());
+	        System.out.println("Connections: ");
+	        chamber.listConnections();
+	        //System.out.println("Connections: " + chamber.listConnections());
 	        System.out.println("------------------------------------");
 	    }
 	}
@@ -94,5 +97,4 @@ public class Cave
 	}
 	
 	// sera que realmente e necessario uma funcao para desconectar os tuneis?
-	
 }

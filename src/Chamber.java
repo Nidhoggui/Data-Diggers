@@ -1,4 +1,5 @@
 import java.util.List;
+//import java.util.Map;
 
 public class Chamber 
 {	
@@ -71,9 +72,10 @@ public class Chamber
 		connections.add(tunnel);
 	}
 	
-	public void listChambers() 
+	public void listConnections() 
 	{
-	    for (Tunnel connection : connections) {
+	    for (Tunnel connection : connections) 
+	    {
 	        System.out.println("Description: " + connection.getDestiny().getDescription());
 	        System.out.println("Content: " + connection.getDestiny().getContent());
 	        System.out.println("Length: " + connection.getLength());

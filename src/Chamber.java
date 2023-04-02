@@ -6,14 +6,14 @@ public class Chamber
 	private String description;
 	private String content;
 	private boolean exit;
-	private List<Chamber> connections;
+	private List<Tunnel> connections;
 	
 	public Chamber() 
 	{
 		super();
 	}
 	
-	public Chamber(int distance, String description, String content, boolean exit, List<Chamber> connections)
+	public Chamber(int distance, String description, String content, boolean exit, List<Tunnel> connections)
 	{
 		super();
 		this.distance = distance;
@@ -57,25 +57,26 @@ public class Chamber
 		this.exit = exit;
 	}
 
-	public List<Chamber> getConnections() {
+	public List<Tunnel> getConnections() {
 		return connections;
 	}
 	
 	//acho que vai precisar como metodo auxiliar na hora de formar uma caverna
-	public void setConnections(List<Chamber> connections) {
+	public void setConnections(List<Tunnel> connections) {
 		this.connections = connections;
 	}
 
-	public void addConnection(Chamber chamber)
+	public void addConnection(Tunnel tunnel)
 	{
-		connections.add(chamber);
+		connections.add(tunnel);
 	}
 	
 	public void listChambers() 
 	{
-	    for (Chamber connection : connections) {
-	        System.out.println("Description: " + connection.getDescription());
-	        System.out.println("Content: " + connection.getContent());
+	    for (Tunnel connection : connections) {
+	        System.out.println("Description: " + connection.getDestiny().getDescription());
+	        System.out.println("Content: " + connection.getDestiny().getContent());
+	        System.out.println("Length: " + connection.getLength());
 	        System.out.println("------------------------------------");
 	    }
 	}

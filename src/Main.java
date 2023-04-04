@@ -1,7 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+
+    public static double randomInt (int min, int max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
     public static void main(String[] args) {
         // Criando as câmaras
@@ -35,11 +40,34 @@ public class Main {
         cave.connectChambers(tunnel4);
         //cave.connectChambers(tunnel5);
 
-        cave.listChambers();
-
-        System.out.println(cave.findEscape(chamber1));
-
         // Listando as câmaras
         //cave.listChambers();
+
+        //System.out.println(cave.findEscape(chamber1));
+
+        //tela de apresentacao
+        System.out.println("-__ /\\\\                              ,          ,- _~.                  \n" +
+                "  ||  \\\\              '             ||         (' /|     _   ;          \n" +
+                " /||__|| ,._-_  /'\\\\ \\\\  _-_   _-_ =||=       ((  ||    < \\, \\\\/\\  _-_  \n" +
+                " \\||__||  ||   || || || || \\\\ ||    ||        ((  ||    /-|| || | || \\\\ \n" +
+                "  ||  |,  ||   || || || ||/   ||    ||         ( / |   (( || || | ||/   \n" +
+                "_-||-_/   \\\\,  \\\\,/  || \\\\,/  \\\\,/  \\\\,         -____-  \\/\\\\ \\\\/  \\\\,/  \n" +
+                "  ||                 |;                                                 \n" +
+                "                     /                                                  ");
+        //variaveis para o jogo e criacao de player
+        Scanner a = new Scanner(System.in);
+        System.out.print("Write the name of your character: ");
+        String name = a.nextLine();
+        Player player = new Player(name, chamber1, 1000);
+        Text text = new Text();
+
+        //textos
+        text.addStartText("voce foi escolhido");
+        text.addStartText("bem vindo a aqui");
+        text.addStartText("你跟我一起去吗");
+        text.addStartText("auf ein Sauerkraut");
+
+        //menu principal
+        System.out.println(text.getStartText((int) randomInt(0, text.getStartTextLenght())));
     }
 }

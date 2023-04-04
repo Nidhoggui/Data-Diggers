@@ -106,7 +106,7 @@ public class Cave
 			for (Chamber chamber : openSet) {
 				if (current.getF() == 0 || current.getF() > chamber.getF() && !closedSet.contains(chamber)){
 					current = chamber;
-					System.out.println("pegou current");
+					//System.out.println("pegou current");
 				}
 			}
 			//System.out.println(current.getDescription());
@@ -118,12 +118,12 @@ public class Cave
 				if (closedSet.contains(tunnel.getDestiny())) {
 					continue;
 				}
-				System.out.println(tunnel.getLength());
+				//System.out.println(tunnel.getLength());
 				int brk = 0;
 				Chamber neighbor = tunnel.getDestiny();
 				neighbor.setG(Math.abs(neighbor.getDistance() + start.getDistance())); // 20: 15 - 0 = 15  21: 20 + 0 = 20
 				if (neighbor.isExit()){
-					System.out.println("achou");
+					//System.out.println("achou");
 					neighbor.setTunnelNumber(current.getTunnelNumber() + (Math.abs(current.getTunnelNumber() - neighbor.getG())));
 					return neighbor.getTunnelNumber();
 				}
@@ -131,19 +131,19 @@ public class Cave
 				neighbor.setF(neighbor.getH() + neighbor.getG()); // 20: 12 + 15 = 27  21: 20 + 7 = 27
 				for (Chamber chamber : openSet){
 					if (chamber.getF() < neighbor.getF()){
-						System.out.println("open");
+						//System.out.println("open");
 						brk = 1;
 					}
 				}
 				for (Chamber chamber : closedSet){
 					if (chamber.getF() < neighbor.getF()){
-						System.out.println("closed");
+						//System.out.println("closed");
 						brk = 1;
 					}
 				}
 				//int test_gScore = current.getG() + Math.abs(neighbor.getDistance() - current.getDistance()); //15
 				if (brk > -1) {
-					System.out.println("passou");
+					//System.out.println("passou");
 					if (tunnelNumberCheck == 0) {
 						current.setTunnelNumber((current.getTunnelNumber() + current.getG()));
 						tunnelNumberCheck = 1;

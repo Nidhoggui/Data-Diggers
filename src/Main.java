@@ -71,6 +71,9 @@ public class Main {
                 MP3Player mp3Player = new MP3Player(f);
                 Thread newThread = new Thread(() -> {
                     mp3Player.play();
+                    File f2 = new File("files/Michael_Christian_Durrant_Classical_Guitar_Erik Satie_Gymnopedie_no_1_arr_Mermikides.mp3");
+                    mp3Player.addToPlayList(f2);
+                    mp3Player.play();
                 });
                 newThread.start();
                 while (!mp3Player.isStopped()) {

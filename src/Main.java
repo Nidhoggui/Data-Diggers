@@ -52,7 +52,7 @@ public class Main {
         //System.out.println(cave.findEscape(chamber1));
 
         //tela de apresentacao
-        System.out.println("-__ /\\\\                              ,          ,- _~.                  \n" +
+        System.out.println("\n-__ /\\\\                              ,          ,- _~.                  \n" +
                 "  ||  \\\\              '             ||         (' /|     _   ;          \n" +
                 " /||__|| ,._-_  /'\\\\ \\\\  _-_   _-_ =||=       ((  ||    < \\, \\\\/\\  _-_  \n" +
                 " \\||__||  ||   || || || || \\\\ ||    ||        ((  ||    /-|| || | || \\\\ \n" +
@@ -63,13 +63,12 @@ public class Main {
 
         //sound
         Scanner a = new Scanner(System.in);
-        System.out.println("Enable audio (Y/N)");
+        System.out.print("\nEnable audio (Y/N): ");
         String choice = a.nextLine();
         if(choice.equals("y") || choice.equals("Y")) {
             try {
                 File f = new File("files/Dowland_-_Melancholy_Galliard.mp3");
                 MP3Player mp3Player = new MP3Player(f);
-                mp3Player.setV
                 Thread newThread = new Thread(() -> {
                     mp3Player.play();
                 });
@@ -82,16 +81,17 @@ public class Main {
             }
         }
         //variaveis para o jogo e criacao de player
-        System.out.print("Write the name of your character: ");
+        System.out.print("\nWrite the name of your character: ");
         String name = a.nextLine();
         Player player = new Player(name, chamber1, 1000);
         Text text = new Text();
 
         //textos
-        text.addStartText("Voce acorda em um lugar escuro e levemente frio. Ao olhar ao redor, voce percebe que ha apenas uma tocha ao seu lado");
-        text.addStartText("bem vindo a aqui");
-        text.addStartText("你跟我一起去吗");
-        text.addStartText("auf ein Sauerkraut");
+        text.addStartText("\nAs you stir from your slumber, you find yourself in a desolate and frigid chamber. With naught but a flickering torch to guide you, you rise to your feet, the scant light illuminating the bleak surroundings. A palpable sense of danger fills the air, and you can hear the faint drip of water echoing off the walls. It seems you have stumbled upon a treacherous cave.");
+        text.addStartText("\nYou sprinted through the dense forest, the sound of leaves crunching beneath your feet echoing around you. Suddenly, you fall into a deep hole, and everything fades to black. When you open your eyes, you're lying on the cold, hard ground, and the moonlight streaming down from the hole above is the only source of light. As you try to gather your bearings, you notice a flickering torch next to you, casting eerie shadows on the damp earth.");
+        text.addStartText("\nA mysterious cave entrance looms before you, beckoning you with an otherworldly allure. Your curiosity piqued, you take the first steps inside. Suddenly, with a deafening rumble, the entrance collapses behind you, trapping you inside. Panic begins to set in, but as you fumble through your belongings, you find a flickering torch to guide your way.");
+        text.addStartText("\nFollowing a night of revelry at the local tavern, you decide to make your way home and collapse into your bed. Exhaustion overcomes you, and you drift off into a deep slumber. However, when you awaken, the sound of dripping water echoes in your ears, and you realize that your bed has disappeared. You're lying on the hard ground, and the only light comes from a solitary torch by your side. As you look around, you see that you're in a cavernous chamber, with towering rock walls stretching up into the darkness above. You're alone in this strange and unknown place, with only your trusty torch to guide you.");
+        text.addStartText("\nThe village where you grew up has been overrun by an army of enemies. In a desperate attempt to escape, you run deep into the forest, clutching a flickering torch in your hand. As the sounds of battle fade into the distance, you stumble upon a small cave entrance hidden among the trees. Driven by fear and instinct, you venture deeper and deeper into the cavern, feeling safer with every step. You hear strange noises outside the cave, but eventually, exhaustion overtakes you, and you fall into a deep slumber. When you awaken, you're disoriented and alone, trapped in a place you don't recognize. Your torch has burned low, but it's enough to cast an eerie glow on the rough-hewn walls of the cave. You must find a way out, but you're unsure where to start. You take a deep breath, steel yourself for whatever may come.");
 
         //menu principal
         System.out.println(text.getStartText((int) randomInt(0, text.getStartTextLenght())));

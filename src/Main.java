@@ -1,6 +1,12 @@
+import javax.sound.sampled.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.File;
+import jaco.mp3.player.MP3Player;
+import java.io.File;
 
 public class Main {
 
@@ -8,7 +14,7 @@ public class Main {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         // Criando as câmaras
         Chamber chamber1 = new Chamber(0, "Câmara 1", "Conteúdo da Câmara 1", false, new ArrayList<>());
         Chamber chamber2 = new Chamber(15, "Câmara 2", "Conteúdo da Câmara 2", false, new ArrayList<>());
@@ -54,15 +60,35 @@ public class Main {
                 "_-||-_/   \\\\,  \\\\,/  || \\\\,/  \\\\,/  \\\\,         -____-  \\/\\\\ \\\\/  \\\\,/  \n" +
                 "  ||                 |;                                                 \n" +
                 "                     /                                                  ");
-        //variaveis para o jogo e criacao de player
+
+        //sound
         Scanner a = new Scanner(System.in);
+        System.out.println("Enable audio (Y/N)");
+        String choice = a.nextLine();
+        if(choice.equals("y") || choice.equals("Y")) {
+            try {
+                File f = new File("files/Dowland_-_Melancholy_Galliard.mp3");
+                MP3Player mp3Player = new MP3Player(f);
+                mp3Player.setV
+                Thread newThread = new Thread(() -> {
+                    mp3Player.play();
+                });
+                newThread.start();
+                while (!mp3Player.isStopped()) {
+                    Thread.sleep(5000);
+                }
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        //variaveis para o jogo e criacao de player
         System.out.print("Write the name of your character: ");
         String name = a.nextLine();
         Player player = new Player(name, chamber1, 1000);
         Text text = new Text();
 
         //textos
-        text.addStartText("voce foi escolhido");
+        text.addStartText("Voce acorda em um lugar escuro e levemente frio. Ao olhar ao redor, voce percebe que ha apenas uma tocha ao seu lado");
         text.addStartText("bem vindo a aqui");
         text.addStartText("你跟我一起去吗");
         text.addStartText("auf ein Sauerkraut");

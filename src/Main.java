@@ -14,7 +14,7 @@ public class Main {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
         // Criando as câmaras
         Chamber chamber1 = new Chamber(0, "Câmara 1", "Conteúdo da Câmara 1", false, new ArrayList<>());
         Chamber chamber2 = new Chamber(15, "Câmara 2", "Conteúdo da Câmara 2", false, new ArrayList<>());
@@ -51,7 +51,15 @@ public class Main {
 
         //System.out.println(cave.findEscape(chamber1));
 
-        //tela de apresentacao
+        //clear screen
+        if (System.getProperty("os.name").contains("Windows")) {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } else {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
+
+        //Game name art
         System.out.println("\n-__ /\\\\                              ,          ,- _~.                  \n" +
                 "  ||  \\\\              '             ||         (' /|     _   ;          \n" +
                 " /||__|| ,._-_  /'\\\\ \\\\  _-_   _-_ =||=       ((  ||    < \\, \\\\/\\  _-_  \n" +
@@ -83,20 +91,40 @@ public class Main {
                 System.err.println(e.getMessage());
             }
         }
-        //variaveis para o jogo e criacao de player
+        //variables of the game and player
         System.out.print("\nWrite the name of your character: ");
         String name = a.nextLine();
         Player player = new Player(name, chamber1, 1000);
         Text text = new Text();
 
-        //textos
+        System.out.println("Write 'quit game' at any momento to quit the game!");
+
+        //texts
         text.addStartText("\nAs you stir from your slumber, you find yourself in a desolate and frigid chamber. With naught but a flickering torch to guide you, you rise to your feet, the scant light illuminating the bleak surroundings. A palpable sense of danger fills the air, and you can hear the faint drip of water echoing off the walls. It seems you have stumbled upon a treacherous cave.");
         text.addStartText("\nYou sprinted through the dense forest, the sound of leaves crunching beneath your feet echoing around you. Suddenly, you fall into a deep hole, and everything fades to black. When you open your eyes, you're lying on the cold, hard ground, and the moonlight streaming down from the hole above is the only source of light. As you try to gather your bearings, you notice a flickering torch next to you, casting eerie shadows on the damp earth.");
         text.addStartText("\nA mysterious cave entrance looms before you, beckoning you with an otherworldly allure. Your curiosity piqued, you take the first steps inside. Suddenly, with a deafening rumble, the entrance collapses behind you, trapping you inside. Panic begins to set in, but as you fumble through your belongings, you find a flickering torch to guide your way.");
         text.addStartText("\nFollowing a night of revelry at the local tavern, you decide to make your way home and collapse into your bed. Exhaustion overcomes you, and you drift off into a deep slumber. However, when you awaken, the sound of dripping water echoes in your ears, and you realize that your bed has disappeared. You're lying on the hard ground, and the only light comes from a solitary torch by your side. As you look around, you see that you're in a cavernous chamber, with towering rock walls stretching up into the darkness above. You're alone in this strange and unknown place, with only your trusty torch to guide you.");
         text.addStartText("\nThe village where you grew up has been overrun by an army of enemies. In a desperate attempt to escape, you run deep into the forest, clutching a flickering torch in your hand. As the sounds of battle fade into the distance, you stumble upon a small cave entrance hidden among the trees. Driven by fear and instinct, you venture deeper and deeper into the cavern, feeling safer with every step. You hear strange noises outside the cave, but eventually, exhaustion overtakes you, and you fall into a deep slumber. When you awaken, you're disoriented and alone, trapped in a place you don't recognize. Your torch has burned low, but it's enough to cast an eerie glow on the rough-hewn walls of the cave. You must find a way out, but you're unsure where to start. You take a deep breath, steel yourself for whatever may come.");
 
-        //menu principal
         System.out.println(text.getStartText((int) randomInt(0, text.getStartTextLenght())));
+
+        //game start
+        //need a reasonable condition
+        while(true){
+           System.out.print("(1) Check the chamber around you\n(2) Check if there is any other chamber you can go\n(3) Check yourself\n What will you do?");
+           choice = a.nextLine();
+           switch(choice){
+               case "1":
+                   break;
+               case "2":
+                   break;
+               case "3":
+                   break;
+               case "quit game":
+                   break;
+               default:
+                   break;
+           }
+        }
     }
 }

@@ -20,6 +20,13 @@ public class Player
 		System.out.println(location.getContent());
 	}
 
+	//completar este método depois de adicionar IDs às chambers
+	public void move()
+	{
+		location.listConnections();
+		System.out.println("Where do you want to go?");
+	}
+
 	public boolean isAlive()
 	{
 		if(stamina > 0) return true;

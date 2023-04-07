@@ -96,6 +96,7 @@ public class Main {
         String name = a.nextLine();
         Player player = new Player(name, chamber1, 1000);
         Text text = new Text();
+        PlayerInteraction playerInteraction = new PlayerInteraction(player);
 
         System.out.println("Write 'quit game' at any momento to quit the game!");
 
@@ -109,18 +110,43 @@ public class Main {
         System.out.println(text.getStartText((int) randomInt(0, text.getStartTextLenght())));
 
         //game start
+        String choice2;
+        String choice3;
         //need a reasonable condition
         while(true){
-           System.out.print("(1) Check the chamber around you\n(2) Check if there is any other chamber you can go\n(3) Check yourself\n What will you do?");
+           ascChamber();
+           System.out.print("(1) Check the chamber around you\n(2) Check if there is any other paths you can go\n(3) Check yourself\nWhat will you do? ");
            choice = a.nextLine();
            switch(choice){
                case "1":
+                   playerInteraction.handleCheckCurrentChamber(player);
                    break;
                case "2":
+                   System.out.println("There are "+ player.getLocation().getConnections().size() +" paths surrounding you.");
+                   System.out.print("(1) Check where one of these paths seems to led to\n(2) Choose path to follow\nWhat will you so? ");
+                   choice2 = a.nextLine();
+                   switch (choice2) {
+                       case "1":
+                           boolean check = false;
+                           while (check == false) {
+                               System.out.print("What path do you want to check(number between 1 and" + player.getLocation().getConnections().size() + "):\n");
+                               choice3 = a.nextLine();
+                               if (Integer.parseInt(choice3) > 1 && Integer.parseInt(choice3) <= player.getLocation().getConnections().size()){
+                            	   playerInteraction.handleCheckSelectedChamber(player, player.getLocation());
+                               }
+                           }
+                           break;
+                       case "2":
+                           break;
+                       default:
+                           break;
+                   }
                    break;
                case "3":
+            	   playerInteraction.handlePlayerCheck(player);
                    break;
                case "quit game":
+                   playerInteraction.handleQuitGame();
                    break;
                default:
                    break;

@@ -32,4 +32,38 @@ public class Player
 		if(stamina > 0) return true;
 		return false;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Chamber getLocation() {
+		return location;
+	}
+
+	public void setLocation(Chamber location) {
+		this.location = location;
+	}
+
+	public int getStamina() {
+		return stamina;
+	}
+
+	public void setStamina(int stamina) {
+		this.stamina = stamina;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	
 }

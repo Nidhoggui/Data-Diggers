@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
 import java.lang.Math;
@@ -161,5 +163,51 @@ public class Cave
 		return -1;
 	}
 
-	// sera que realmente e necessario uma funcao para desconectar os tuneis?
+	private List<Chamber> generateRandomCave(int numChambers) 
+	{
+	    List<Chamber> chambers = new ArrayList<>();
+	    List<Tunnel> tunnels = new ArrayList<>();
+	    Random random = new Random();
+
+	    // Generate chambers
+	    for (int i = 0; i < numChambers; i++) 
+	    {
+	        String description = "Chamber " + i;
+	        String content = "No content.";
+	        boolean isExit = (i == numChambers - 1); // Last chamber is the exit
+	        Chamber chamber = new Chamber(i, description, content, isExit, new ArrayList<>());
+	        chambers.add(chamber);
+	    }
+
+	    // Generate tunnels
+	    for (int i = 0; i < numChambers; i++) 
+	    {
+	        for (int j = i + 1; j < numChambers; j++)
+	        {
+	            int length = random.nextInt(100) + 1; // Random tunnel length between 1 and 100
+	            Tunnel tunnel = new Tunnel(chambers.get(i), chambers.get(j), length);
+	            tunnels.add(tunnel);
+	        }
+	    }
+
+	    // Shuffle tunnels
+	    Collections.shuffle(tunnels);
+
+	    // Kruskal's algorithm
+	    UnionFind<Chamber> uf = new UnionFind<>(chambers);
+	    for (Tunnel tunnel : tunnels) 
+	    {
+	        Chamber origin = tunnel.getOrigin();
+	        Chamber destiny = tunnel.getDestiny();
+	        if (!uf.connected(origin, destiny)) 
+	        {
+	            uf.union(origin, destiny);
+	            origin.addConnection(tunnel);
+	            destiny.addConnection(new Tunnel(destiny, origin, tunnel.getLength()));
+	        }
+	    }
+
+	    return chambers;
+	}
+
 }

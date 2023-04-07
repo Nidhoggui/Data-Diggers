@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+
 public class Player
 {
 	private String name;
 	private Chamber location;
 	private int stamina;
 	private int score;
+	private ArrayList<Item> items;
 
 	public Player(String name, Chamber location, int stamina)
 	{
@@ -43,6 +46,11 @@ public class Player
 
 	public Chamber getLocation() {
 		return location;
+	}
+	
+	//alterar
+	public boolean getItem() {
+		return false;
 	}
 
 	public void setLocation(Chamber location) {

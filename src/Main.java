@@ -96,6 +96,7 @@ public class Main {
         String name = a.nextLine();
         Player player = new Player(name, chamber1, 1000);
         Text text = new Text();
+        PlayerInteraction playerInteraction = new PlayerInteraction(player);
 
         System.out.println("Write 'quit game' at any momento to quit the game!");
 
@@ -118,7 +119,7 @@ public class Main {
            choice = a.nextLine();
            switch(choice){
                case "1":
-                   handleCheckCurrentChamber();
+                   playerInteraction.handleCheckCurrentChamber(player);
                    break;
                case "2":
                    System.out.println("There are "+ player.getLocation().getConnections().size() +" paths surrounding you.");
@@ -131,7 +132,7 @@ public class Main {
                                System.out.print("What path do you want to check(number between 1 and" + player.getLocation().getConnections().size() + "):\n");
                                choice3 = a.nextLine();
                                if (Integer.parseInt(choice3) > 1 && Integer.parseInt(choice3) <= player.getLocation().getConnections().size()){
-                                    handleCheckSelectedChamber(player.getLocation();
+                            	   playerInteraction.handleCheckSelectedChamber(player, player.getLocation());
                                }
                            }
                            break;
@@ -142,10 +143,10 @@ public class Main {
                    }
                    break;
                case "3":
-                   handlePlayerCheck();
+            	   playerInteraction.handlePlayerCheck(player);
                    break;
                case "quit game":
-                   handleQuitGame();
+                   playerInteraction.handleQuitGame();
                    break;
                default:
                    break;

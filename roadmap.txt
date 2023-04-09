@@ -16,6 +16,12 @@ Etapas para implementar o projeto:
         (Ainda precisa encontrar uma aplicação crítica pra isso no jogo)
 
     VI - Testar e depurar o jogo.
+    
+    
+    # Branco todo:
+    1 - descricao aleatoria para cada chamber
+    2 - content aleatorio para cada chamber
+    3 - score baseado no content de cada chamber
 
 ------------------------------------------------------------------------------------------------------------------------
 

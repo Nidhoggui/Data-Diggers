@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.File;
 import jaco.mp3.player.MP3Player;
+import org.fusesource.jansi.AnsiConsole;
 import java.io.File;
 
 public class Main {
@@ -114,7 +115,21 @@ public class Main {
         }
     }
 
+    public static void clearScreen() throws IOException, InterruptedException {
+        if (System.getProperty("os.name").contains("Windows")) {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } else {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
+    }
+
+    public static void clearLines(int lines) {
+        System.out.print("\033["+lines+"A\33[2K\r");
+    }
+
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
+        AnsiConsole.systemInstall();
         // Criando as câmaras
         Chamber chamber1 = new Chamber(0, "Câmara 1", "Conteúdo da Câmara 1", false, new ArrayList<>());
         Chamber chamber2 = new Chamber(15, "Câmara 2", "Conteúdo da Câmara 2", false, new ArrayList<>());
@@ -152,12 +167,7 @@ public class Main {
         //System.out.println(cave.findEscape(chamber1));
 
         //clear screen
-        if (System.getProperty("os.name").contains("Windows")) {
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        } else {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-        }
+        clearScreen();
 
         //Game name art
         System.out.println("\n-__ /\\\\                              ,          ,- _~.                  \n" +
@@ -167,8 +177,7 @@ public class Main {
                 "  ||  |,  ||   || || || ||/   ||    ||         ( / |   (( || || | ||/   \n" +
                 "_-||-_/   \\\\,  \\\\,/  || \\\\,/  \\\\,/  \\\\,         -____-  \\/\\\\ \\\\/  \\\\,/  \n" +
                 "  ||                 |;                                                 \n" +
-                "                     /                                                  ");
-
+                "                     /                                                  \n");
         //sound
         Scanner a = new Scanner(System.in);
         System.out.print("\nEnable audio (Y/N): ");
@@ -178,10 +187,15 @@ public class Main {
                 File f = new File("files/Dowland_-_Melancholy_Galliard.mp3");
                 MP3Player mp3Player = new MP3Player(f);
                 Thread newThread = new Thread(() -> {
-                    mp3Player.play();
                     File f2 = new File("files/Michael_Christian_Durrant_Classical_Guitar_Erik Satie_Gymnopedie_no_1_arr_Mermikides.mp3");
+                    File f3 = new File("files/dark_forest_of_my_mind.mp3");
                     mp3Player.addToPlayList(f2);
-                    mp3Player.play();
+                    mp3Player.addToPlayList(f3);
+                    while(true) {
+                        if(mp3Player.isStopped()) {
+                            mp3Player.play();
+                        }
+                    }
                 });
                 newThread.start();
                 while (!mp3Player.isStopped()) {
@@ -191,14 +205,16 @@ public class Main {
                 System.err.println(e.getMessage());
             }
         }
+        clearLines(2);
         //variables of the game and player
         System.out.print("\nWrite the name of your character: ");
         String name = a.nextLine();
         Player player = new Player(name, chamber1, 1000);
         Text text = new Text();
         PlayerInteraction playerInteraction = new PlayerInteraction(player);
+        clearLines(3);
 
-        System.out.println("Write 'quit game' at any momento to quit the game!");
+        System.out.println("Write 'quit game' at any moment to quit the game!");
 
         //texts
         text.addStartText("\nAs you stir from your slumber, you find yourself in a desolate and frigid chamber. With naught but a flickering torch to guide you, you rise to your feet, the scant light illuminating the bleak surroundings. A palpable sense of danger fills the air, and you can hear the faint drip of water echoing off the walls. It seems you have stumbled upon a treacherous cave.");
@@ -211,46 +227,64 @@ public class Main {
 
         //game start
         String choice2;
-        String choice3;
+        int choice3;
+        boolean check;
         //need a reasonable condition
         while(true){
-           ascChamber(player, cave);
-           System.out.print("(1) Check the chamber around you\n(2) Check if there is any other paths you can go\n(3) Check yourself\nWhat will you do? ");
-           choice = a.nextLine();
-           switch(choice){
-               case "1":
-                   playerInteraction.handleCheckCurrentChamber(player);
-                   break;
-               case "2":
-                   System.out.println("There are "+ player.getLocation().getConnections().size() +" paths surrounding you.");
-                   System.out.print("(1) Check where one of these paths seems to led to\n(2) Choose path to follow\nWhat will you so? ");
-                   choice2 = a.nextLine();
-                   switch (choice2) {
-                       case "1":
-                           boolean check = false;
-                           while (check == false) {
-                               System.out.print("What path do you want to check(number between 1 and" + player.getLocation().getConnections().size() + "):\n");
-                               choice3 = a.nextLine();
-                               if (Integer.parseInt(choice3) > 1 && Integer.parseInt(choice3) <= player.getLocation().getConnections().size()){
-                            	   playerInteraction.handleCheckSelectedChamber(player, player.getLocation());
-                               }
-                           }
-                           break;
-                       case "2":
-                           break;
-                       default:
-                           break;
+            ascChamber(player, cave);
+            System.out.print("(1) Check the chamber around you\n(2) Check if there is any other paths you can go\n(3) Check yourself\nWhat will you do? ");
+            choice = a.nextLine();
+            switch(choice){
+                case "1":
+                    playerInteraction.handleCheckCurrentChamber(player);
+                    break;
+                case "2":
+                    System.out.println("\nThere are "+ player.getLocation().getConnections().size() +" paths surrounding you.\n");
+                    System.out.print("(1) Check where one of these paths seems to led to\n(2) Choose path to follow\nWhat will you so? ");
+                    choice2 = a.nextLine();
+                    switch (choice2) {
+                        case "1":
+                            check = false;
+                            while (check == false) {
+                                System.out.print("What path do you want to check(number from 1 to " + player.getLocation().getConnections().size() + "):\n");
+                                choice3 = a.nextInt();
+                                if (choice3 >= 1 && choice3 <= player.getLocation().getConnections().size()){
+                                    playerInteraction.handleCheckSelectedChamber(player, choice3-1);
+                                    check = true;
+                                }
+                            }
+                            break;
+                        case "2":
+                            check = false;
+                            while (check == false) {
+                                System.out.print("What path do you want to go(number from 1 to" + player.getLocation().getConnections().size() + "):\n");
+                                choice3 = a.nextInt();
+                                if (choice3 >= 1 && choice3 <= player.getLocation().getConnections().size()){
+                                    playerInteraction.handleGoToSelectedChamber(player, choice3-1);
+                                    check = true;
+                                }
+                            }
+                            System.out.println("You've entered a new chamber!");
+                            System.out.println(player.getLocation().getDescription());
+                            System.out.println("You've found: "+ player.getLocation().getContent());
+                            if(player.getLocation().isExit() == true)
+                                System.out.println("You've found the exit and managed to leave the cave. A cave that was never found again.");
+                            break;
+                        default:
+                            break;
                    }
                    break;
-               case "3":
-            	   playerInteraction.handlePlayerCheck(player);
-                   break;
-               case "quit game":
-                   playerInteraction.handleQuitGame();
-                   break;
-               default:
-                   break;
-           }
+                case "3":
+                    playerInteraction.handlePlayerCheck(player);
+                    break;
+                case "quit game":
+                    playerInteraction.handleQuitGame();
+                    break;
+                default:
+                    break;
+            }
+            System.out.println("\nPress \"ENTER\" to continue...");
+            a.nextLine();
         }
     }
 }

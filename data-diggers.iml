@@ -10,5 +10,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jaco-mp3-player-0.9.3" level="project" />
     <orderEntry type="library" exported="" name="jaco-mp3-player-0.9.3" level="project" />
+    <orderEntry type="library" name="jansi-2.4.0" level="project" />
   </component>
 </module>

@@ -13,29 +13,39 @@ public class PlayerInteraction {
 	public void handleCheckCurrentChamber(Player player) 
 	{
 	    Chamber currentChamber = player.getLocation();
-	    System.out.println("Current chamber:");
-	    System.out.println("Description: " + currentChamber.getDescription());
-	    System.out.println("Content: " + currentChamber.getContent());
-	    System.out.println("Number of tunnels: " + currentChamber.getConnections().size());
-	    System.out.println("Exit: " + currentChamber.isExit());
+	    //System.out.println("Current chamber:");
+	    System.out.println("\nDescription: " + currentChamber.getDescription());
+	    //System.out.println("Content: " + currentChamber.getContent());
+	    //System.out.println("Number of tunnels: " + currentChamber.getConnections().size());
+	    //System.out.println("Exit: " + currentChamber.isExit());
 	}
 	
-	public void handleCheckSelectedChamber(Player player, Chamber chamberIndex)
+	public void handleCheckSelectedChamber(Player player, int choice)
 	{
-	    List<Tunnel> connections = chamberIndex.getConnections();
-	    Chamber selectedChamber = connections.get(0).getDestiny();
-	    System.out.println("Selected chamber:");
-	    System.out.println("Description: " + selectedChamber.getDescription());
-	    System.out.println("Content: " + selectedChamber.getContent());
-	    System.out.println("Number of tunnels: " + selectedChamber.getConnections().size());
-	    System.out.println("Exit: " + selectedChamber.isExit());
-	    
+	    List<Tunnel> connections = player.getLocation().getConnections();
+	    Chamber selectedChamber = connections.get(choice).getDestiny();
+	    //System.out.println("Selected chamber:");
+	    System.out.println("\nDescription: " + selectedChamber.getDescription());
+		System.out.println("\nhow far: " + selectedChamber.getDistance());
+	    //System.out.println("Content: " + selectedChamber.getContent());
+	    //System.out.println("Number of tunnels: " + selectedChamber.getConnections().size());
+	    //System.out.println("Exit: " + selectedChamber.isExit());
+
 	    int newStamina = player.getStamina() - 5;
 	    player.setStamina(newStamina);
-	    
 	}
-	
-	public void handlePlayerCheck(Player player) 
+
+	public void handleGoToSelectedChamber(Player player, int choice) {
+		{
+			List<Tunnel> connections = player.getLocation().getConnections();
+			Chamber selectedChamber = connections.get(choice).getDestiny();
+			player.setLocation(selectedChamber);
+			int newStamina = player.getStamina() - 20;
+			player.setStamina(newStamina);
+		}
+	}
+
+	public void handlePlayerCheck(Player player)
 	{
 	    if (player.isAlive())
 	    {

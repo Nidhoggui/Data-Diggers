@@ -20,6 +20,10 @@ public class Store {
 	
 	public void sellItem(int index)
 	{
-		
+		ArrayList<Item> items = new ArrayList<Item>();
+		items = player.getItems();
+		//player.setScore(player.getScore() + items.get(index).getValue());
+		items.remove(index);
+		player.setItems(items);
 	}
 }

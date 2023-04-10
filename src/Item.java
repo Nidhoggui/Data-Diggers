@@ -3,6 +3,7 @@ public class Item
 {
 	private String name;
 	private String description;
+	//private int value;
 	
 	public Item(String name, String description)
 	{
@@ -25,4 +26,14 @@ public class Item
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	/*
+	 * public int getValue() {
+	 * 		return value;
+	 * }
+	 * 
+	 * public void setValue(int value) {
+	 * 		this.value = value;
+	 * }
+	 */
 }

@@ -62,6 +62,10 @@ public class Player
 	public ArrayList<Item> getItems() {
 		return items;
 	}
+	
+	public void setItems(ArrayList<Item> items) {
+		this.items = items;
+	}
 
 	public void setLocation(Chamber location) {
 		this.location = location;

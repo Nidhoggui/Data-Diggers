@@ -54,7 +54,7 @@ public class PlayerInteraction {
 			Chamber selectedChamber = connections.get(choice).getDestiny();
 			int newStamina = player.getStamina() - Math.abs(player.getLocation().getDistance() - selectedChamber.getDistance()); //wrong math
 			player.setLocation(selectedChamber);
-			System.out.println("\nYou gather courage and passes through the tight path...\n");
+			System.out.println("\nYou gather courage and passes through the tight path...");
 			System.out.println(selectedChamber.getDescription());
 			player.setStamina(newStamina);
 		}
@@ -67,7 +67,9 @@ public class PlayerInteraction {
 	        System.out.println("\n" + player.getName() + " is alive.");
 	        System.out.println("Stamina: " + player.getStamina());
 	        System.out.println("Score: " + player.getScore());
-	        //handleCheckCurrentChamber(player);
+			System.out.println("Items: \n");
+			player.listItems();
+			//handleCheckCurrentChamber(player);
 			int newStamina = player.getStamina() - 10;
 			player.setStamina(newStamina);
 	    } else System.out.println(player.getName() + " is dead.");
@@ -92,5 +94,9 @@ public class PlayerInteraction {
 	public void handleHelp(){
 		System.out.println("\n--- List of commands. Write to do the action ---");
 		System.out.println("quit game -> quit the game");
+	}
+	public void handleDeath(){
+		System.out.println("Unfortanely you died after passing out in the cold cave.");
+		System.exit(0);
 	}
 }

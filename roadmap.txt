@@ -19,7 +19,7 @@ Etapas para implementar o projeto:
     
     
     # Branco todo:
-    1 - adicionar mais musicas
+    1 - melhorar textos
     
 
 ------------------------------------------------------------------------------------------------------------------------

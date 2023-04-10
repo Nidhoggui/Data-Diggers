@@ -36,6 +36,13 @@ public class Player
 		}
 	}
 
+	public void listItems(){
+		for ( Item item : items){
+			System.out.println("name: " + item.getName());
+			System.out.println("description: " + item.getDescription() + "\n");
+		}
+	}
+
 	public void addItem(Item item) {
 		items.add(item);
 	}

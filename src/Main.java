@@ -476,8 +476,22 @@ public class Main {
                 Thread newThread = new Thread(() -> {
                     File f2 = new File("files/Michael_Christian_Durrant_Classical_Guitar_Erik Satie_Gymnopedie_no_1_arr_Mermikides.mp3");
                     File f3 = new File("files/dark_forest_of_my_mind.mp3");
+                    File f4 = new File("files/Andreas_Grossmann_plays_El_testament_dAmelia_by_Miguel_Llobet_on_a_1924_Hermann_Hauser.mp3");
+                    File f5 = new File("files/ChristophDenoth_Mr_Dowlands_midnight.mp3");
+                    File f6 = new File("files/farewell_fabio_lime_sergio_assad.mp3");
+                    File f7 = new File("files/farewell_p_3.mp3");
+                    File f8 = new File("files/marcello-bach_-_Concerto_in_minor_performed_by_the_henderson_kolk_duo.mp3");
+                    File f9 = new File("files/prelude_in_e_minor_robert_de_visee_cameron_welke.mp3");
+                    File f10 = new File("files/Tombeau_(S.L.Weiss)_-_Edin_Karamazov_Lute.mp3");
                     mp3Player.addToPlayList(f2);
                     mp3Player.addToPlayList(f3);
+                    mp3Player.addToPlayList(f4);
+                    mp3Player.addToPlayList(f5);
+                    mp3Player.addToPlayList(f6);
+                    mp3Player.addToPlayList(f7);
+                    mp3Player.addToPlayList(f8);
+                    mp3Player.addToPlayList(f9);
+                    mp3Player.addToPlayList(f10);
                     mp3Player.setShuffle(true);
                     mp3Player.skipForward();
                     mp3Player.skipBackward();
@@ -499,7 +513,7 @@ public class Main {
         //variables of the game and player
         System.out.print("\nWrite the name of your character: ");
         String name = a.nextLine();
-        Player player = new Player(name, cave2.getChambers().get(0), 1000);
+        Player player = new Player(name, cave2.getChambers().get(0), 500);
         PlayerInteraction playerInteraction = new PlayerInteraction(player);
         clearLines(3);
 
@@ -541,7 +555,7 @@ public class Main {
                 } else if (distanceToExit >= 100) {
                     System.out.println(text.getCrystalText(5));
                 }
-                cave.clearChambersVariables(cave);
+                cave.clearChambersVariables(cave.getChambers());
             }
             System.out.print("(1) Check deeply the chamber around you (costs 25 stamina)\n(2) Check if there is any other paths you can go\n(3) Check yourself (costs 10 stamina)\nWhat will you do? ");
             choice = a.nextLine();
@@ -577,6 +591,7 @@ public class Main {
                                     check = true;
                                 }
                                 if(player.getLocation().isExit() == true) {
+                                    playerInteraction.handlePlayerCheck(player);
                                     playerInteraction.handleExitFound();
                                 }
                                 break;
@@ -597,6 +612,9 @@ public class Main {
                     break;
                 default:
                     break;
+            }
+            if (player.getStamina() <= 0) {
+                playerInteraction.handleDeath();
             }
             System.out.println("\nPress \"ENTER\" to continue...");
             a.nextLine();

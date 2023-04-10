@@ -42,7 +42,7 @@ public class Cave
 		this.chambers = chambers;
 	}
 
-	public List<Chamber> getChambers() {
+	public ArrayList<Chamber> getChambers() {
 		return this.chambers;
 	}
 
@@ -90,8 +90,8 @@ public class Cave
 		return true;
 	}
 
-	public void clearChambersVariables(Cave cave){
-		for (Chamber chamber : cave.getChambers()) {
+	public void clearChambersVariables(ArrayList<Chamber> chambers){
+		for (Chamber chamber : chambers) {
 			chamber.setG(0);
 			chamber.setH(0);
 			chamber.setF(0);
@@ -246,7 +246,7 @@ public class Cave
 	    for (int i = 0; i < numChambers; i++) {
 	        String description = descriptionText.get(random.nextInt(descriptionText.size()));
 			ChamberContent content = null;
-			int r = random.nextInt(10) + 1;
+			int r = random.nextInt(numChambers) + 1;
 			if (r > 5) {
 				content = contentObject.get(random.nextInt(contentObject.size()));
 			}
@@ -257,12 +257,38 @@ public class Cave
 
 	    // Generate tunnels
 	    for (int i = 0; i < numChambers; i++) {
+			/*
 	        for (int j = i + 1; j < numChambers; j++) {
 	            int length = random.nextInt(100) + 1; // Random tunnel length between 1 and 100
 	            Tunnel tunnel = new Tunnel(chambers.get(i), chambers.get(j), length);
 	            tunnels.add(tunnel);
 	        }
-	    }
+			 */
+			for (int j = 0; j < numChambers; j++) {
+				int rand = random.nextInt(numChambers) + 1;
+				if ((rand == 1 || rand == 2) && i != j) {
+					Tunnel tunnel = new Tunnel(chambers.get(i), chambers.get(j), i);
+					tunnels.add(tunnel);
+				}/* else if (i == 9) {
+					if (chambers.get(i).getConnections() == null) {
+						Tunnel tunnel = new Tunnel(chambers.get(i), chambers.get(rand), i);
+					}
+				}*/
+			}
+		}
+
+		//check if exit is reachable
+		/*
+		while (findEscape2(chambers.get(0)) != -1){
+			int rand0 = random.nextInt(numChambers);
+			int rand1 = random.nextInt(numChambers);
+			if (rand0 != rand1) {
+				Tunnel tunnel = new Tunnel(chambers.get(rand0), chambers.get(rand1), 0);
+				tunnels.add(tunnel);
+				cave.connect
+			}
+		}
+		 */
 
 	    // Shuffle tunnels
 	    Collections.shuffle(tunnels);
@@ -278,6 +304,13 @@ public class Cave
 	            destiny.addConnection(new Tunnel(destiny, origin, tunnel.getLength()));
 	        }
 	    }
+
+		// repeat if exit is unreachable
+		//System.out.println("rodou generate cave");
+		while (findEscape2(chambers.get(0)) == -1) {
+			chambers = generateRandomCave(numChambers, descriptionText, contentObject);
+			clearChambersVariables(chambers);
+		}
 
 	    return chambers;
 	}

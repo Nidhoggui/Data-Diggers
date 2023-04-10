@@ -176,6 +176,7 @@ public class Main {
         text.addContentObject(c5);
         text.addContentObject(c6);
 
+        // cave creation
         // Criando as câmaras
         Chamber chamber1 = new Chamber(0, text.getDescriptionText(0), text.getContentObject(0), false, new ArrayList<>());
         Chamber chamber2 = new Chamber(15, text.getDescriptionText(1), text.getContentObject(1), false, new ArrayList<>());
@@ -193,7 +194,7 @@ public class Main {
         Tunnel tunnel6 = new Tunnel(chamber1, chamber6, 25);
 
         // Criando a caverna
-        List<Chamber> chambers = new ArrayList<>();
+        ArrayList<Chamber> chambers = new ArrayList<Chamber>();
         chambers.add(chamber1);
         chambers.add(chamber2);
         chambers.add(chamber3);
@@ -213,6 +214,9 @@ public class Main {
 
         // Listando as câmaras
         //cave.listChambers();
+
+
+        Cave cave2 = new Cave(cave.generateRandomCave(10, text.getDescriptionList(), text.getContentList()));
 
         //System.out.println(cave.findEscape(chamber1));
 
@@ -262,7 +266,7 @@ public class Main {
         //variables of the game and player
         System.out.print("\nWrite the name of your character: ");
         String name = a.nextLine();
-        Player player = new Player(name, chamber1, 200);
+        Player player = new Player(name, cave2.getChambers().get(0), 1000);
         PlayerInteraction playerInteraction = new PlayerInteraction(player);
         clearLines(3);
 
@@ -278,19 +282,19 @@ public class Main {
         int choice3;
         boolean check;
         int round = 0;
-        player.addItem(crystal);
+        //player.addItem(crystal);
         //need a reasonable condition (or maybe not)
         while(true){
             if (round != 0) {
                 clearScreen();
             }
-            ascChamber(player, cave);
+            ascChamber(player, cave2);
             if (round == 0) {
                 System.out.println(player.getLocation().getDescription());
             }
             if (player.containCrystal(crystal)){
-                int distanceToExit = cave.findEscape(player.getLocation());
-                System.out.println(distanceToExit);
+                int distanceToExit = cave2.findEscape2(player.getLocation());
+                //System.out.println(distanceToExit);
                 if(distanceToExit < 10) {
                     System.out.println(text.getCrystalText(0));
                 } else if (distanceToExit < 30) {
@@ -306,7 +310,7 @@ public class Main {
                 }
                 cave.clearChambersVariables(cave);
             }
-            System.out.print("(1) Check deeply the chamber around you (costs 5 stamina)\n(2) Check if there is any other paths you can go\n(3) Check yourself (costs 2 stamina)\nWhat will you do? ");
+            System.out.print("(1) Check deeply the chamber around you (costs 25 stamina)\n(2) Check if there is any other paths you can go\n(3) Check yourself (costs 10 stamina)\nWhat will you do? ");
             choice = a.nextLine();
             switch(choice){
                 case "1":
@@ -314,7 +318,7 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("\nThere are "+ player.getLocation().getConnections().size() +" paths surrounding you.\n");
-                    System.out.print("(1) Check where one of these paths seems to led to (costs 10 stamina)\n(2) Choose path to follow (stamina cost equivalent to distance)\nWhat will you so? ");
+                    System.out.print("(1) Check where one of these paths seems to led to (costs 20 stamina)\n(2) Choose path to follow (stamina cost equivalent to distance)\nWhat will you so? ");
                     choice2 = a.nextLine();
                     switch (choice2) {
                         case "1":
@@ -342,8 +346,6 @@ public class Main {
                                 if(player.getLocation().isExit() == true) {
                                     System.out.println("You've found the exit and managed to leave the cave. A cave that was never found again.");
                                     System.exit(0);
-                                } else {
-                                    System.out.println(player.getLocation().getDescription());
                                 }
                                 break;
                             }

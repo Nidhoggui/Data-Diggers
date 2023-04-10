@@ -10,9 +10,9 @@ import java.lang.Math;
 
 public class Cave 
 {
-	private List<Chamber> chambers;
+	private ArrayList<Chamber> chambers = new ArrayList<Chamber>();
 
-	public Cave(List<Chamber> chambers) {
+	public Cave(ArrayList<Chamber> chambers) {
 		super();
 		this.chambers = chambers;
 	}
@@ -36,6 +36,10 @@ public class Cave
 		} else {
 			return null;
 		}
+	}
+
+	public void setChambers(ArrayList<Chamber> chambers) {
+		this.chambers = chambers;
 	}
 
 	public List<Chamber> getChambers() {
@@ -95,6 +99,64 @@ public class Cave
 		}
 	}
 
+	public int findEscape2(Chamber start){
+		start.setF(-1);
+		start.setG(999999);
+		start.setH(999999);
+		ArrayList<Chamber> openSet = new ArrayList<Chamber>();
+		ArrayList<Chamber> closedSet = new ArrayList<Chamber>();
+		openSet.add(start);
+		Chamber neighbor = new Chamber();
+		Chamber exit = new Chamber();
+		for (Chamber chamber : chambers) {
+			if (chamber.isExit() == true) {
+				exit = chamber;
+			}
+		}
+		while(!openSet.isEmpty()){
+			Chamber current = new Chamber();
+			int i = 0;
+			for (Chamber chamber : openSet) {
+				if(i == 0){
+					current = chamber;
+					i++;
+				}
+				if(chamber.getF() < current.getF()){
+					current = chamber;
+				}
+			}
+			openSet.remove(current);
+			closedSet.add(current);
+			for (Tunnel tunnel : current.getConnections()) {
+				//System.out.println("rodou");
+				if (tunnel.getDestiny() != current) {
+					neighbor = tunnel.getDestiny();
+				} else {
+					neighbor = tunnel.getOrigin();
+				}
+				if (closedSet.contains(neighbor)){
+					continue;
+				}
+				if (neighbor.isExit()){
+					neighbor.setTunnelNumber(current.getG() + Math.abs(neighbor.getDistance() - current.getDistance()));
+					return neighbor.getTunnelNumber() - 999999;
+				}
+				neighbor.setG(Math.abs(neighbor.getDistance() - start.getDistance()));
+				neighbor.setH(Math.abs(exit.getDistance() - neighbor.getDistance()));
+				neighbor.setF(neighbor.getH() + neighbor.getG());
+				int movementCost = current.getG() + Math.abs(neighbor.getDistance() - current.getDistance()) ;
+				if (movementCost < neighbor.getG() || !openSet.contains(neighbor)) {
+					neighbor.setG(movementCost);
+					neighbor.setTunnelNumber(movementCost);
+					if (!openSet.contains(neighbor)) {
+						openSet.add(neighbor);
+					}
+				}
+			}
+		}
+		return -1;
+	}
+
 	public int findEscape(Chamber start){
 		int tunnelNumberCheck = 0;
 		Chamber exit = new Chamber();
@@ -111,6 +173,7 @@ public class Cave
 		start.setG(start.getDistance());
 		start.setH(Math.abs(exit.getDistance() - start.getDistance()));
 		start.setF(start.getH());
+		System.out.println(start.getH());
 		openSet.add(start);
 		while (!openSet.isEmpty()) {
 			current.setF(0);
@@ -132,11 +195,11 @@ public class Cave
 				//System.out.println(tunnel.getLength());
 				int brk = 0;
 				Chamber neighbor = tunnel.getDestiny();
-				neighbor.setG(Math.abs(neighbor.getDistance() + start.getDistance())); // 20: 15 - 0 = 15  21: 20 + 0 = 20
+				neighbor.setG(Math.abs(neighbor.getDistance() - start.getDistance())); // 20: 15 - 0 = 15  21: 20 + 0 = 20
 				if (neighbor.isExit()){
 					//System.out.println("achou");
-					System.out.println("currenttunnelnumber = " + current.getTunnelNumber());
-					System.out.println("neightgetG= " + neighbor.getG());
+					//System.out.println("currenttunnelnumber = " + current.getTunnelNumber());
+					//System.out.println("neightgetG= " + neighbor.getG());
 					neighbor.setTunnelNumber(current.getTunnelNumber() + (Math.abs(current.getTunnelNumber() - neighbor.getG())));
 					return neighbor.getTunnelNumber();
 				}
@@ -174,28 +237,27 @@ public class Cave
 		return -1;
 	}
 
-	/*
-	private List<Chamber> generateRandomCave(int numChambers) 
-	{
-	    List<Chamber> chambers = new ArrayList<>();
-	    List<Tunnel> tunnels = new ArrayList<>();
+	public ArrayList<Chamber> generateRandomCave(int numChambers, ArrayList<String> descriptionText, ArrayList<ChamberContent> contentObject) {
+		ArrayList<Chamber> chambers = new ArrayList<>();
+	    ArrayList<Tunnel> tunnels = new ArrayList<>();
 	    Random random = new Random();
 
 	    // Generate chambers
-	    for (int i = 0; i < numChambers; i++) 
-	    {
-	        String description = "Chamber " + i;
-	        String content = "No content.";
+	    for (int i = 0; i < numChambers; i++) {
+	        String description = descriptionText.get(random.nextInt(descriptionText.size()));
+			ChamberContent content = null;
+			int r = random.nextInt(10) + 1;
+			if (r > 5) {
+				content = contentObject.get(random.nextInt(contentObject.size()));
+			}
 	        boolean isExit = (i == numChambers - 1); // Last chamber is the exit
-	        Chamber chamber = new Chamber(i, description, content, isExit, new ArrayList<>());
+	        Chamber chamber = new Chamber((random.nextInt(100) + 1), description, content, isExit, new ArrayList<>());
 	        chambers.add(chamber);
 	    }
 
 	    // Generate tunnels
-	    for (int i = 0; i < numChambers; i++) 
-	    {
-	        for (int j = i + 1; j < numChambers; j++)
-	        {
+	    for (int i = 0; i < numChambers; i++) {
+	        for (int j = i + 1; j < numChambers; j++) {
 	            int length = random.nextInt(100) + 1; // Random tunnel length between 1 and 100
 	            Tunnel tunnel = new Tunnel(chambers.get(i), chambers.get(j), length);
 	            tunnels.add(tunnel);
@@ -207,12 +269,10 @@ public class Cave
 
 	    // Kruskal's algorithm
 	    UnionFind<Chamber> uf = new UnionFind<>(chambers);
-	    for (Tunnel tunnel : tunnels) 
-	    {
+	    for (Tunnel tunnel : tunnels) {
 	        Chamber origin = tunnel.getOrigin();
 	        Chamber destiny = tunnel.getDestiny();
-	        if (!uf.connected(origin, destiny)) 
-	        {
+	        if (!uf.connected(origin, destiny)) {
 	            uf.union(origin, destiny);
 	            origin.addConnection(tunnel);
 	            destiny.addConnection(new Tunnel(destiny, origin, tunnel.getLength()));
@@ -221,6 +281,4 @@ public class Cave
 
 	    return chambers;
 	}
-	*/
-
 }

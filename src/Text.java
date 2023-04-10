@@ -32,4 +32,11 @@ public class Text {
     }
     public String getCrystalText(int num) {
         return CrystalText.get(num);
-    }}
+    }
+    public ArrayList<String> getDescriptionList(){
+        return DescriptionText;
+    }
+    public ArrayList<ChamberContent> getContentList(){
+        return ContentObject;
+    }
+}

@@ -19,9 +19,7 @@ Etapas para implementar o projeto:
     
     
     # Branco todo:
-    1 - criar help
-    2 - adicionar mais musicas
-    3 - adicionar mais textos
+    1 - adicionar mais musicas
     
 
 ------------------------------------------------------------------------------------------------------------------------

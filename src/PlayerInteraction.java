@@ -54,7 +54,8 @@ public class PlayerInteraction {
 			Chamber selectedChamber = connections.get(choice).getDestiny();
 			int newStamina = player.getStamina() - Math.abs(player.getLocation().getDistance() - selectedChamber.getDistance()); //wrong math
 			player.setLocation(selectedChamber);
-			//System.out.println(newStamina);
+			System.out.println("\nYou gather courage and passes through the tight path...\n");
+			System.out.println(selectedChamber.getDescription());
 			player.setStamina(newStamina);
 		}
 	}
@@ -82,6 +83,11 @@ public class PlayerInteraction {
 	        System.out.println("Quitting game...");
 	        System.exit(0);
 	    }
+	}
+	public void handleExitFound() {
+		System.out.println("You've found the exit and managed to leave the cave. A cave that was never found again.");
+		System.out.println("Continue to be made...");
+		System.exit(0);
 	}
 	public void handleHelp(){
 		System.out.println("\n--- List of commands. Write to do the action ---");

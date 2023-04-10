@@ -271,7 +271,7 @@ public class Main {
         clearLines(3);
 
         //should be done as help
-        System.out.println("Write 'quit game' at any moment to quit the game!");
+        System.out.println("Write 'help' at any moment to view game commands!");
 
 
 
@@ -356,6 +356,9 @@ public class Main {
                    break;
                 case "3":
                     playerInteraction.handlePlayerCheck(player);
+                    break;
+                case "help":
+                    playerInteraction.handleHelp();
                     break;
                 case "quit game":
                     playerInteraction.handleQuitGame();

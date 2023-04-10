@@ -75,12 +75,16 @@ public class PlayerInteraction {
 	public void handleQuitGame() 
 	{
 	    Scanner scanner = new Scanner(System.in);
-	    System.out.println("Are you sure you want to exit the game?[Y/n]");
+	    System.out.print("Are you sure you want to exit the game?[Y/n]: ");
 	    char answer = scanner.nextLine().charAt(0);
 	    if (answer == 'Y' || answer == 'y') 
 	    {
 	        System.out.println("Quitting game...");
 	        System.exit(0);
 	    }
+	}
+	public void handleHelp(){
+		System.out.println("\n--- List of commands. Write to do the action ---");
+		System.out.println("quit game -> quit the game");
 	}
 }

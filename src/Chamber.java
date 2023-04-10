@@ -1,3 +1,4 @@
+import java.nio.channels.Channel;
 import java.util.List;
 //import java.util.Map;
 
@@ -9,7 +10,7 @@ public class Chamber
 	private int tunnelNumber;
 	private int distance;
 	private String description;
-	private String content;
+	private ChamberContent content;
 	private boolean exit;
 	private List<Tunnel> connections;
 	
@@ -18,7 +19,7 @@ public class Chamber
 		super();
 	}
 	
-	public Chamber(int distance, String description, String content, boolean exit, List<Tunnel> connections)
+	public Chamber(int distance, String description, ChamberContent content, boolean exit, List<Tunnel> connections)
 	{
 		super();
 		this.distance = distance;
@@ -74,11 +75,11 @@ public class Chamber
 		this.description = description;
 	}
 
-	public String getContent() {
+	public ChamberContent getContent() {
 		return content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(ChamberContent content) {
 		this.content = content;
 	}
 

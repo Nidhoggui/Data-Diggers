@@ -142,20 +142,20 @@ public class Main {
         text.addStartText("\nFollowing a night of revelry at the local tavern, you decide to make your way home and collapse into your bed. Exhaustion overcomes you, and you drift off into a deep slumber. However, when you awaken, the sound of dripping water echoes in your ears, and you realize that your bed has disappeared. You're lying on the hard ground, and the only light comes from a solitary torch by your side. As you look around, you see that you're in a cavernous chamber, with towering rock walls stretching up into the darkness above. You're alone in this strange and unknown place, with only your trusty torch to guide you.");
         text.addStartText("\nThe village where you grew up has been overrun by an army of enemies. In a desperate attempt to escape, you run deep into the forest, clutching a flickering torch in your hand. As the sounds of battle fade into the distance, you stumble upon a small cave entrance hidden among the trees. Driven by fear and instinct, you venture deeper and deeper into the cavern, feeling safer with every step. You hear strange noises outside the cave, but eventually, exhaustion overtakes you, and you fall into a deep slumber. When you awaken, you're disoriented and alone, trapped in a place you don't recognize. Your torch has burned low, but it's enough to cast an eerie glow on the rough-hewn walls of the cave. You must find a way out, but you're unsure where to start. You take a deep breath, steel yourself for whatever may come.");
 
-        text.addDescriptionText("\nYou scan your surroundings, your eyes straining to pierce the gloom of the old cave chamber. The only sounds are the echoes of your own footsteps and the occasional drip of water. You try to recall how you got here, but the memories are foggy and indistinct. All you know is that you're alone, lost in the depths of the earth.");
-        text.addDescriptionText("\nYou scan the cavern around you, your torch casting flickering shadows on the rough-hewn walls. The air is thick with the smell of dust and damp stone, and you hear nothing but the faint trickle of water in the distance. The chamber is vast and empty, with nothing but rocks and rubble strewn about the floor. You take a step forward, and your foot kicks up a cloud of dust, making you cough and choke.");
+        text.addDescriptionText("\nYou scan your surroundings, your eyes straining to pierce the gloom of the old cave chamber. The only sounds are the echoes of your own footsteps and the occasional drip of water. You try to recall how you got here, but the memories are foggy and indistinct. All you know is that you're alone, lost in the depths of the earth.\n");
+        text.addDescriptionText("\nYou scan the cavern around you, your torch casting flickering shadows on the rough-hewn walls. The air is thick with the smell of dust and damp stone, and you hear nothing but the faint trickle of water in the distance. The chamber is vast and empty, with nothing but rocks and rubble strewn about the floor. You take a step forward, and your foot kicks up a cloud of dust, making you cough and choke.\n");
         text.addDescriptionText("\nAs your eyes adjust to the dim light, you realize that you're standing in the heart of a massive cave chamber. The sight sends shivers down your spine, and you can't help but feel a sense of dread. The walls stretch up into the inky blackness above, and the air is thick with the musty scent of damp earth and rock.\n" +
                 "\n" +
-                "You glance around, searching for some sign of an exit, but all you can see is the wavering glow of your torch as it casts strange shadows on the jagged stone formations around you. Your heart races with fear as you realize that you're completely alone in this vast and ominous cavern. But despite the terror that grips you, you know that you must press on, for the only way out is forward into the unknown");
-        text.addDescriptionText("\nYou realize with a start that you're standing in the heart of a vast, foreboding cavern, the walls towering high above you. The air is thick with the musty scent of damp earth, and the silence is punctuated only by the faint sound of dripping water. The darkness seems to press in on you from all sides, and a chill runs down your spine. You feel an overwhelming sense of fear and uncertainty, unsure of what dangers might lurk in the shadows. But even as you tremble with apprehension, you know that you must press on, your torch casting a flickering beam of light into the gloom as you set out into the unknown depths of the cave.");
-        text.addDescriptionText("\nYou search every nook and cranny of the cavernous chamber, your heart pounding with the hope of finding some glimmer of hope or salvation. But as you scour the darkness, your torch flickering in the still air, you find nothing but rock and stone, the cold, unyielding walls of the cave closing in around you. Your fear begins to mount, a gnawing sense of dread filling your soul as you realize the enormity of your situation. There is no escape, no way out, no hope to be found in this desolate, forsaken place. You are alone with your torch, trapped in the belly of the earth, and the darkness threatens to swallow you whole.");
+                "You glance around, searching for some sign of an exit, but all you can see is the wavering glow of your torch as it casts strange shadows on the jagged stone formations around you. Your heart races with fear as you realize that you're completely alone in this vast and ominous cavern. But despite the terror that grips you, you know that you must press on, for the only way out is forward into the unknown.\n");
+        text.addDescriptionText("\nYou realize with a start that you're standing in the heart of a vast, foreboding cavern, the walls towering high above you. The air is thick with the musty scent of damp earth, and the silence is punctuated only by the faint sound of dripping water. The darkness seems to press in on you from all sides, and a chill runs down your spine. You feel an overwhelming sense of fear and uncertainty, unsure of what dangers might lurk in the shadows. But even as you tremble with apprehension, you know that you must press on, your torch casting a flickering beam of light into the gloom as you set out into the unknown depths of the cave.\n");
+        text.addDescriptionText("\nYou search every nook and cranny of the cavernous chamber, your heart pounding with the hope of finding some glimmer of hope or salvation. But as you scour the darkness, your torch flickering in the still air, you find nothing but rock and stone, the cold, unyielding walls of the cave closing in around you. Your fear begins to mount, a gnawing sense of dread filling your soul as you realize the enormity of your situation. There is no escape, no way out, no hope to be found in this desolate, forsaken place. You are alone with your torch, trapped in the belly of the earth, and the darkness threatens to swallow you whole.\n");
 
-        text.addCrystalText("As you grip the crystal tightly, you sense that you are getting closer to your goal. Its radiant pulsations seem to be leading you towards the exit of this treacherous cave. With each step, the crystal's light intensifies, guiding you through the darkness.");
-        text.addCrystalText("The crystal is pulsating at a reasonable frequency ,but you can feel a sense of unease creeping up within you. The walls of the cave seem to be closing in, and the shadows grow deeper with every step you take. The crystal's glow is your only source of hope, but its light isn't confident enough.");
-        text.addCrystalText("Your heart sinks as you watch the crystal's pulsations. You feel lost in the labyrinth of the cave, with no way of knowing which way is out. The shadows close in around you, and the air grows thick with the stench of despair.");
-        text.addCrystalText("The crystal's pulsations are barely visible, and you feel yourself becoming more and more disoriented with each passing moment. You can hear the sound of water dripping from somewhere deep within the cave, but it provides no comfort. You are alone in the darkness, with no way of knowing which way is up or down.");
-        text.addCrystalText("You watch as the crystal's pulsations fade into nothingness, leaving you in complete darkness. Panic begins to set in, and you feel your heart pounding in your chest. The walls of the cave seem to be closing in on you, and the air grows thin and suffocating.");
-        text.addCrystalText("The crystal in your barely pulsates, making you think if the faint pulsation is real or just your imagination. You feel completely lost. You stumble blindly through the darkness, your footfalls echoing off the cave walls. You are alone, afraid, and with no way of knowing whether you will ever find your way out of this wretched place.");
+        text.addCrystalText("As you grip the crystal tightly, you sense that you are getting closer to your goal. Its radiant pulsations seem to be leading you towards the exit of this treacherous cave. With each step, the crystal's light intensifies, guiding you through the darkness.\n");
+        text.addCrystalText("The crystal is pulsating at a reasonable frequency ,but you can feel a sense of unease creeping up within you. The walls of the cave seem to be closing in, and the shadows grow deeper with every step you take. The crystal's glow is your only source of hope, but its light isn't confident enough.\n");
+        text.addCrystalText("Your heart sinks as you watch the crystal's pulsations. You feel lost in the labyrinth of the cave, with no way of knowing which way is out. The shadows close in around you, and the air grows thick with the stench of despair.\n");
+        text.addCrystalText("The crystal's pulsations are barely visible, and you feel yourself becoming more and more disoriented with each passing moment. You can hear the sound of water dripping from somewhere deep within the cave, but it provides no comfort. You are alone in the darkness, with no way of knowing which way is up or down.\n");
+        text.addCrystalText("You watch as the crystal's pulsations fade into nothingness, leaving you in complete darkness. Panic begins to set in, and you feel your heart pounding in your chest. The walls of the cave seem to be closing in on you, and the air grows thin and suffocating.\n");
+        text.addCrystalText("The crystal in your hand barely pulsates, making you think if the faint pulsation is real or just your imagination. You feel completely lost. You stumble blindly through the darkness, your footfalls echoing off the cave walls. You are alone, afraid, and with no way of knowing whether you will ever find your way out of this wretched place.\n");
 
         Item i1 = new Item("Shiny Metal", "A piece of a shiny metal.");
         Item i2 = new Item("Diamond", "It's a diamond. It's value may be worth all your troubles.");
@@ -177,11 +177,12 @@ public class Main {
         text.addContentObject(c6);
 
         // Criando as câmaras
-        Chamber chamber1 = new Chamber(0, "Câmara 1", "Conteúdo da Câmara 1", false, new ArrayList<>());
-        Chamber chamber2 = new Chamber(15, "Câmara 2", "Conteúdo da Câmara 2", false, new ArrayList<>());
-        Chamber chamber3 = new Chamber(20, "Câmara 3", "Conteúdo da Câmara 3", false, new ArrayList<>());
-        Chamber chamber4 = new Chamber(40, "Câmara 4", "Conteúdo da Câmara 4", false, new ArrayList<>());
-        Chamber chamber5 = new Chamber(27, "Câmara 5", "Conteúdo da Câmara 5", true, new ArrayList<>());
+        Chamber chamber1 = new Chamber(0, text.getDescriptionText(0), text.getContentObject(0), false, new ArrayList<>());
+        Chamber chamber2 = new Chamber(15, text.getDescriptionText(1), text.getContentObject(1), false, new ArrayList<>());
+        Chamber chamber3 = new Chamber(20, text.getDescriptionText(2), text.getContentObject(2), false, new ArrayList<>());
+        Chamber chamber4 = new Chamber(40, text.getDescriptionText(3), text.getContentObject(3), false, new ArrayList<>());
+        Chamber chamber5 = new Chamber(27, text.getDescriptionText(4), text.getContentObject(4), true, new ArrayList<>());
+        Chamber chamber6 = new Chamber(57, "camera 6", text.getContentObject(5), false, new ArrayList<>());
 
         // Criando o túnel
         Tunnel tunnel1 = new Tunnel(chamber1, chamber2, 20);
@@ -189,6 +190,7 @@ public class Main {
         Tunnel tunnel3 = new Tunnel(chamber2, chamber4, 22);
         Tunnel tunnel4 = new Tunnel(chamber4, chamber5, 23);
         Tunnel tunnel5 = new Tunnel(chamber3, chamber5, 24);
+        Tunnel tunnel6 = new Tunnel(chamber1, chamber6, 25);
 
         // Criando a caverna
         List<Chamber> chambers = new ArrayList<>();
@@ -197,6 +199,7 @@ public class Main {
         chambers.add(chamber3);
         chambers.add(chamber4);
         chambers.add(chamber5);
+        chambers.add(chamber6);
 
         Cave cave = new Cave(chambers);
 
@@ -206,6 +209,7 @@ public class Main {
         cave.connectChambers(tunnel3);
         cave.connectChambers(tunnel4);
         cave.connectChambers(tunnel5);
+        cave.connectChambers(tunnel6);
 
         // Listando as câmaras
         //cave.listChambers();
@@ -238,6 +242,8 @@ public class Main {
                     mp3Player.addToPlayList(f2);
                     mp3Player.addToPlayList(f3);
                     mp3Player.setShuffle(true);
+                    mp3Player.skipForward();
+                    mp3Player.skipBackward();
                     while(true) {
                         if(mp3Player.isStopped()) {
                             mp3Player.play();
@@ -272,28 +278,35 @@ public class Main {
         int choice3;
         boolean check;
         int round = 0;
+        player.addItem(crystal);
         //need a reasonable condition (or maybe not)
         while(true){
             if (round != 0) {
                 clearScreen();
             }
             ascChamber(player, cave);
+            if (round == 0) {
+                System.out.println(player.getLocation().getDescription());
+            }
             if (player.containCrystal(crystal)){
-                if(cave.findEscape(player.getLocation()) < 10) {
+                int distanceToExit = cave.findEscape(player.getLocation());
+                System.out.println(distanceToExit);
+                if(distanceToExit < 10) {
                     System.out.println(text.getCrystalText(0));
-                } else if (cave.findEscape(player.getLocation()) < 30) {
+                } else if (distanceToExit < 30) {
                     System.out.println(text.getCrystalText(1));
-                } else if (cave.findEscape(player.getLocation()) < 50) {
+                } else if (distanceToExit < 50) {
                     System.out.println(text.getCrystalText(2));
-                } else if (cave.findEscape(player.getLocation()) < 70) {
+                } else if (distanceToExit < 70) {
                     System.out.println(text.getCrystalText(3));
-                } else if (cave.findEscape(player.getLocation()) < 100) {
+                } else if (distanceToExit < 100) {
                     System.out.println(text.getCrystalText(4));
-                } else {
+                } else if (distanceToExit >= 100) {
                     System.out.println(text.getCrystalText(5));
                 }
+                cave.clearChambersVariables(cave);
             }
-            System.out.print("(1) Check the chamber around you (costs 2 stamina)\n(2) Check if there is any other paths you can go\n(3) Check yourself (costs 1 stamina)\nWhat will you do? ");
+            System.out.print("(1) Check deeply the chamber around you (costs 5 stamina)\n(2) Check if there is any other paths you can go\n(3) Check yourself (costs 2 stamina)\nWhat will you do? ");
             choice = a.nextLine();
             switch(choice){
                 case "1":
@@ -301,7 +314,7 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("\nThere are "+ player.getLocation().getConnections().size() +" paths surrounding you.\n");
-                    System.out.print("(1) Check where one of these paths seems to led to (costs 4 stamina)\n(2) Choose path to follow (stamina cost equivalent to distance)\nWhat will you so? ");
+                    System.out.print("(1) Check where one of these paths seems to led to (costs 10 stamina)\n(2) Choose path to follow (stamina cost equivalent to distance)\nWhat will you so? ");
                     choice2 = a.nextLine();
                     switch (choice2) {
                         case "1":
@@ -326,15 +339,15 @@ public class Main {
                                     playerInteraction.handleGoToSelectedChamber(player, choice3-1);
                                     check = true;
                                 }
+                                if(player.getLocation().isExit() == true) {
+                                    System.out.println("You've found the exit and managed to leave the cave. A cave that was never found again.");
+                                    System.exit(0);
+                                } else {
+                                    System.out.println(player.getLocation().getDescription());
+                                }
+                                break;
                             }
-                            System.out.println("\nYou've entered a new chamber!");
-                            System.out.println(player.getLocation().getDescription());
-                            System.out.println("You've found: "+ player.getLocation().getContent());
-                            if(player.getLocation().isExit() == true) {
-                                System.out.println("You've found the exit and managed to leave the cave. A cave that was never found again.");
-                                System.exit(0);
-                            }
-                            break;
+                           break;
                         default:
                             break;
                    }

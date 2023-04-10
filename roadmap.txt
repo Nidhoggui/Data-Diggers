@@ -21,8 +21,9 @@ Etapas para implementar o projeto:
     # Branco todo:
     1 - descricao aleatoria para cada chamber
     2 - content aleatorio para cada chamber
-    4 - criar help
-    5 - 
+    3 - criar help
+    4 - adicionar mais musicas
+    5 - adicionar mais textos
     
 
 ------------------------------------------------------------------------------------------------------------------------

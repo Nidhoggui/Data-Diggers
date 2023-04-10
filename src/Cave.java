@@ -86,6 +86,15 @@ public class Cave
 		return true;
 	}
 
+	public void clearChambersVariables(Cave cave){
+		for (Chamber chamber : cave.getChambers()) {
+			chamber.setG(0);
+			chamber.setH(0);
+			chamber.setF(0);
+			chamber.setTunnelNumber(0);
+		}
+	}
+
 	public int findEscape(Chamber start){
 		int tunnelNumberCheck = 0;
 		Chamber exit = new Chamber();
@@ -126,6 +135,8 @@ public class Cave
 				neighbor.setG(Math.abs(neighbor.getDistance() + start.getDistance())); // 20: 15 - 0 = 15  21: 20 + 0 = 20
 				if (neighbor.isExit()){
 					//System.out.println("achou");
+					System.out.println("currenttunnelnumber = " + current.getTunnelNumber());
+					System.out.println("neightgetG= " + neighbor.getG());
 					neighbor.setTunnelNumber(current.getTunnelNumber() + (Math.abs(current.getTunnelNumber() - neighbor.getG())));
 					return neighbor.getTunnelNumber();
 				}
@@ -163,6 +174,7 @@ public class Cave
 		return -1;
 	}
 
+	/*
 	private List<Chamber> generateRandomCave(int numChambers) 
 	{
 	    List<Chamber> chambers = new ArrayList<>();
@@ -209,5 +221,6 @@ public class Cave
 
 	    return chambers;
 	}
+	*/
 
 }

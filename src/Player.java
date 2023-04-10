@@ -6,13 +6,14 @@ public class Player
 	private Chamber location;
 	private int stamina;
 	private int score;
-	private ArrayList<Item> items;
+	private ArrayList<Item> items = new ArrayList<Item>();
 
 	public Player(String name, Chamber location, int stamina)
 	{
 		this.name = name;
 		this.location = location;
 		this.stamina = stamina;
+		this.score = 0;
 	}
 
 	public void surveyArea()
@@ -31,11 +32,19 @@ public class Player
 	}
 
 	public boolean containCrystal(Item crystal){
-		if (items.contains(crystal)) {
-			return true;
+		if(items != null) {
+			if (items.contains(crystal)) {
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
+	}
+
+	public void addItem(Item item) {
+		items.add(item);
 	}
 
 	public boolean isAlive()

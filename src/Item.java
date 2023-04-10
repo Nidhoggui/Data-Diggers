@@ -10,10 +10,19 @@ public class Item
 		this.description = description;
 	}
 	
-	public void getDescription()
-	{
-		System.out.println("Name: " + name);
-		System.out.println("Description: " + description);
-		System.out.println("------------------------------------------------");
+	public String getDescription() {
+		return description;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

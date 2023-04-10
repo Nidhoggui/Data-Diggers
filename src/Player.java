@@ -24,13 +24,6 @@ public class Player
 		System.out.println(location.getContent());
 	}
 
-	//completar este método depois de adicionar IDs às chambers
-	public void move()
-	{
-		location.listConnections();
-		System.out.println("Where do you want to go?");
-	}
-
 	public boolean containCrystal(Item crystal){
 		if(items != null) {
 			if (items.contains(crystal)) {
@@ -66,8 +59,8 @@ public class Player
 	}
 	
 	//alterar
-	public boolean getItem() {
-		return false;
+	public ArrayList<Item> getItems() {
+		return items;
 	}
 
 	public void setLocation(Chamber location) {

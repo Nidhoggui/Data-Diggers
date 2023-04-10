@@ -18,20 +18,23 @@ public class PlayerInteraction {
 	    //System.out.println("Content: " + currentChamber.getContent());
 	    //System.out.println("Number of tunnels: " + currentChamber.getConnections().size());
 	    //System.out.println("Exit: " + currentChamber.isExit());
+
+		int newStamina = player.getStamina() - 2;
+		player.setStamina(newStamina);
 	}
 	
-	public void handleCheckSelectedChamber(Player player, int choice)
+	public void handleCheckSelectedChamber(Player player, int choice, int random)
 	{
 	    List<Tunnel> connections = player.getLocation().getConnections();
 	    Chamber selectedChamber = connections.get(choice).getDestiny();
 	    //System.out.println("Selected chamber:");
 	    System.out.println("\nDescription: " + selectedChamber.getDescription());
-		System.out.println("\nhow far: " + selectedChamber.getDistance());
+		System.out.println("\nhow far(probably): " + (selectedChamber.getDistance() + random));
 	    //System.out.println("Content: " + selectedChamber.getContent());
 	    //System.out.println("Number of tunnels: " + selectedChamber.getConnections().size());
 	    //System.out.println("Exit: " + selectedChamber.isExit());
 
-	    int newStamina = player.getStamina() - 5;
+	    int newStamina = player.getStamina() - 4;
 	    player.setStamina(newStamina);
 	}
 
@@ -40,7 +43,7 @@ public class PlayerInteraction {
 			List<Tunnel> connections = player.getLocation().getConnections();
 			Chamber selectedChamber = connections.get(choice).getDestiny();
 			player.setLocation(selectedChamber);
-			int newStamina = player.getStamina() - 20;
+			int newStamina = player.getStamina() - selectedChamber.getDistance(); //wrong math
 			player.setStamina(newStamina);
 		}
 	}
@@ -49,10 +52,12 @@ public class PlayerInteraction {
 	{
 	    if (player.isAlive())
 	    {
-	        System.out.println(player.getName() + " is alive.");
+	        System.out.println("\n" + player.getName() + " is alive.");
 	        System.out.println("Stamina: " + player.getStamina());
 	        System.out.println("Score: " + player.getScore());
-	        handleCheckCurrentChamber(player);
+	        //handleCheckCurrentChamber(player);
+			int newStamina = player.getStamina() - 1;
+			player.setStamina(newStamina);
 	    } else System.out.println(player.getName() + " is dead.");
 	}
 	

@@ -1,22 +1,36 @@
 import java.util.ArrayList;
 
 public class Text {
-    private ArrayList<String> start = new ArrayList<String>();
-    private ArrayList<String> afterStart = new ArrayList<String>();
+    private ArrayList<String> startText = new ArrayList<String>();
+    private ArrayList<String> DescriptionText = new ArrayList<String>();
+    private ArrayList<String> CrystalText = new ArrayList<String>();
+    private ArrayList<ChamberContent> ContentObject = new ArrayList<ChamberContent>();
 
     public void addStartText(String text){
-        start.add(text);
+        startText.add(text);
     }
     public String getStartText(int num){
-        return start.get(num);
+        return startText.get(num);
     }
-    public void addAfterStartText(String text){
-        afterStart.add(text);
+    public void addDescriptionText(String text){
+        DescriptionText.add(text);
     }
-    public String getAfterStartText(int num){
-        return afterStart.get(num);
+    public String getDescriptionText(int num){
+        return DescriptionText.get(num);
+    }
+    public void addContentObject(ChamberContent content){
+        ContentObject.add(content);
+    }
+    public ChamberContent getContentObject(int num){
+        return ContentObject.get(num);
     }
     public int getStartTextLenght(){
-        return start.size()-1;
+        return startText.size()-1;
+    }
+    public void setCrystalText(ArrayList<String> crystalText) {
+        CrystalText = crystalText;
+    }
+    public String getCrystalText(int num) {
+        return CrystalText.get(num);
     }
 }

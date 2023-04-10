@@ -150,18 +150,25 @@ public class Main {
         text.addDescriptionText("\nYou realize with a start that you're standing in the heart of a vast, foreboding cavern, the walls towering high above you. The air is thick with the musty scent of damp earth, and the silence is punctuated only by the faint sound of dripping water. The darkness seems to press in on you from all sides, and a chill runs down your spine. You feel an overwhelming sense of fear and uncertainty, unsure of what dangers might lurk in the shadows. But even as you tremble with apprehension, you know that you must press on, your torch casting a flickering beam of light into the gloom as you set out into the unknown depths of the cave.");
         text.addDescriptionText("\nYou search every nook and cranny of the cavernous chamber, your heart pounding with the hope of finding some glimmer of hope or salvation. But as you scour the darkness, your torch flickering in the still air, you find nothing but rock and stone, the cold, unyielding walls of the cave closing in around you. Your fear begins to mount, a gnawing sense of dread filling your soul as you realize the enormity of your situation. There is no escape, no way out, no hope to be found in this desolate, forsaken place. You are alone with your torch, trapped in the belly of the earth, and the darkness threatens to swallow you whole.");
 
+        text.addCrystalText("As you grip the crystal tightly, you sense that you are getting closer to your goal. Its radiant pulsations seem to be leading you towards the exit of this treacherous cave. With each step, the crystal's light intensifies, guiding you through the darkness.");
+        text.addCrystalText("The crystal is pulsating at a reasonable frequency ,but you can feel a sense of unease creeping up within you. The walls of the cave seem to be closing in, and the shadows grow deeper with every step you take. The crystal's glow is your only source of hope, but its light isn't confident enough.");
+        text.addCrystalText("Your heart sinks as you watch the crystal's pulsations. You feel lost in the labyrinth of the cave, with no way of knowing which way is out. The shadows close in around you, and the air grows thick with the stench of despair.");
+        text.addCrystalText("The crystal's pulsations are barely visible, and you feel yourself becoming more and more disoriented with each passing moment. You can hear the sound of water dripping from somewhere deep within the cave, but it provides no comfort. You are alone in the darkness, with no way of knowing which way is up or down.");
+        text.addCrystalText("You watch as the crystal's pulsations fade into nothingness, leaving you in complete darkness. Panic begins to set in, and you feel your heart pounding in your chest. The walls of the cave seem to be closing in on you, and the air grows thin and suffocating.");
+        text.addCrystalText("The crystal in your barely pulsates, making you think if the faint pulsation is real or just your imagination. You feel completely lost. You stumble blindly through the darkness, your footfalls echoing off the cave walls. You are alone, afraid, and with no way of knowing whether you will ever find your way out of this wretched place.");
+
         Item i1 = new Item("Shiny Metal", "A piece of a shiny metal.");
         Item i2 = new Item("Diamond", "It's a diamond. It's value may be worth all your troubles.");
         Item i3 = new Item("Bright Crystal", "You do not recognize.");
         Item i4 = new Item("Memory of the Lonely Flower", "Gives you courage to continue.");
         Item i5 = new Item("Precious Gemstone", "You don't know it's value.");
-        Item i6 = new Item("Weird Pulsating Crystal", "Sometimes it's light pulsates faster.");
+        Item crystal = new Item("Weird Pulsating Crystal", "Sometimes it's light pulsates faster.");
         ChamberContent c1 = new ChamberContent("\nYour heart races as you scan the dimly-lit chamber for any sign of escape. Just when you think all is lost, a glimmer of hope catches your eye. A faint flicker of light dances on the walls. As you get closer, you see something that catches your interest.", 10, i1);
-        ChamberContent c2 = new ChamberContent("\nAs you scour the shadowy chamber, your torch illuminating nothing but cold, unforgiving stone, you spy a glint of something in the distance. Heart racing, you move closer, your steps echoing in the silent chamber. And then, there it is - a small, glowing object, nestled among the rocks.", 30, i1);
-        ChamberContent c3 = new ChamberContent("\nYour eyes strain against the darkness as you search the chamber for any sign of life. Just when you think all is lost, a faint glimmer catches your eye. You move closer, your heart pounding with excitement, until you see it - a shimmering crystal, glowing with an inner light.", 60, i1);
-        ChamberContent c4 = new ChamberContent("\nThe cavernous chamber seems empty, and you start to despair. But then, something catches your eye - a flash of movement, a flicker of color. You move closer, heart racing with hope, until you see what it is - a small, delicate flower, blooming in the midst of the darkness.", 20, i1);
-        ChamberContent c5 = new ChamberContent("\nYou had given up all hope of finding anything in this bleak, desolate chamber. But then, something glimmers in the corner of your eye, and you turn to see what it is. A small, glittering object, hidden among the rocks, catches your eye. You pick it up, heart racing with excitement, and realize that it is a precious gemstone, glinting in the dim torchlight.", 100, i1);
-        ChamberContent c6 = new ChamberContent("\nAs you search the chamber, your eyes catch a glimpse of something peculiar. It's a crystal pulsing like a radar, illuminating the surrounding rocks with its faint glow. You pick it up, curious about its purpose. Could it be the key to finding the way out of this treacherous cave? But as you hold it in your hand, you realize that you have no idea what this strange crystal does. You can't help but feel a sense of unease as you continue your search, it feels like the pulsing of the crystal is guiding you into the unknown depths of the cavern.", 150, i1);
+        ChamberContent c2 = new ChamberContent("\nAs you scour the shadowy chamber, your torch illuminating nothing but cold, unforgiving stone, you spy a glint of something in the distance. Heart racing, you move closer, your steps echoing in the silent chamber. And then, there it is - a small, glowing object, nestled among the rocks.", 30, i2);
+        ChamberContent c3 = new ChamberContent("\nYour eyes strain against the darkness as you search the chamber for any sign of life. Just when you think all is lost, a faint glimmer catches your eye. You move closer, your heart pounding with excitement, until you see it - a shimmering crystal, glowing with an inner light.", 60, i3);
+        ChamberContent c4 = new ChamberContent("\nThe cavernous chamber seems empty, and you start to despair. But then, something catches your eye - a flash of movement, a flicker of color. You move closer, heart racing with hope, until you see what it is - a small, delicate flower, blooming in the midst of the darkness.", 20, i4);
+        ChamberContent c5 = new ChamberContent("\nYou had given up all hope of finding anything in this bleak, desolate chamber. But then, something glimmers in the corner of your eye, and you turn to see what it is. A small, glittering object, hidden among the rocks, catches your eye. You pick it up, heart racing with excitement, and realize that it is a precious gemstone, glinting in the dim torchlight.", 100, i5);
+        ChamberContent c6 = new ChamberContent("\nAs you search the chamber, your eyes catch a glimpse of something peculiar. It's a crystal pulsing like a radar, illuminating the surrounding rocks with its faint glow. You pick it up, curious about its purpose. Could it be the key to finding the way out of this treacherous cave? But as you hold it in your hand, you realize that you have no idea what this strange crystal does. You can't help but feel a sense of unease as you continue your search, it feels like the pulsing of the crystal is guiding you into the unknown depths of the cavern.", 150, crystal);
         text.addContentObject(c1);
         text.addContentObject(c2);
         text.addContentObject(c3);
@@ -249,7 +256,7 @@ public class Main {
         //variables of the game and player
         System.out.print("\nWrite the name of your character: ");
         String name = a.nextLine();
-        Player player = new Player(name, chamber1, 1000);
+        Player player = new Player(name, chamber1, 200);
         PlayerInteraction playerInteraction = new PlayerInteraction(player);
         clearLines(3);
 
@@ -271,6 +278,21 @@ public class Main {
                 clearScreen();
             }
             ascChamber(player, cave);
+            if (player.containCrystal(crystal)){
+                if(cave.findEscape(player.getLocation()) < 10) {
+                    System.out.println(text.getCrystalText(0));
+                } else if (cave.findEscape(player.getLocation()) < 30) {
+                    System.out.println(text.getCrystalText(1));
+                } else if (cave.findEscape(player.getLocation()) < 50) {
+                    System.out.println(text.getCrystalText(2));
+                } else if (cave.findEscape(player.getLocation()) < 70) {
+                    System.out.println(text.getCrystalText(3));
+                } else if (cave.findEscape(player.getLocation()) < 100) {
+                    System.out.println(text.getCrystalText(4));
+                } else {
+                    System.out.println(text.getCrystalText(5));
+                }
+            }
             System.out.print("(1) Check the chamber around you (costs 2 stamina)\n(2) Check if there is any other paths you can go\n(3) Check yourself (costs 1 stamina)\nWhat will you do? ");
             choice = a.nextLine();
             switch(choice){

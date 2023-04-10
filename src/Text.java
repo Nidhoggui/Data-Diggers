@@ -27,10 +27,9 @@ public class Text {
     public int getStartTextLenght(){
         return startText.size()-1;
     }
-    public void setCrystalText(ArrayList<String> crystalText) {
-        CrystalText = crystalText;
+    public void addCrystalText(String text) {
+        CrystalText.add(text);
     }
     public String getCrystalText(int num) {
         return CrystalText.get(num);
-    }
-}
+    }}

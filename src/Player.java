@@ -30,6 +30,14 @@ public class Player
 		System.out.println("Where do you want to go?");
 	}
 
+	public boolean containCrystal(Item crystal){
+		if (items.contains(crystal)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public boolean isAlive()
 	{
 		if(stamina > 0) return true;

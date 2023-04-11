@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -60,15 +61,26 @@ public class PlayerInteraction {
 		}
 	}
 
-	public void handlePlayerCheck(Player player)
+	public void handlePlayerCheck(Player player, String name, ArrayList<String> stamina)
 	{
 	    if (player.isAlive())
 	    {
-	        System.out.println("\n" + player.getName() + " is alive.");
-	        System.out.println("Stamina: " + player.getStamina());
-	        System.out.println("Score: " + player.getScore());
-			System.out.println("Items: \n");
+			name = name.replace("[NAME]", player.getName());
+	        System.out.println("\n" + name + "\n");
+			if (player.getStamina() < 100) {
+				System.out.println(stamina.get(0));
+			} else if (player.getStamina() < 200) {
+				System.out.println(stamina.get(1));
+			} else if (player.getStamina() < 300) {
+				System.out.println(stamina.get(2));
+			} else if (player.getStamina() < 400) {
+				System.out.println(stamina.get(3));
+			} else if (player.getStamina() <= 500) {
+				System.out.println(stamina.get(4));
+			}
+			System.out.print("\nAs you pause to catch your breath, feeling a sense of reassurance as you begin to look at your bag. The items you've gathered along your journey thus far are a testament to your resilience:\n\n");
 			player.listItems();
+			System.out.print("Score: " + player.getScore());
 			//handleCheckCurrentChamber(player);
 			int newStamina = player.getStamina() - 10;
 			player.setStamina(newStamina);

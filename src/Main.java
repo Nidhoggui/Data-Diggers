@@ -382,6 +382,22 @@ public class Main {
                 "You glance around, searching for some sign of an exit, but all you can see is the wavering glow of your torch as it casts strange shadows on the jagged stone formations around you. Your heart races with fear as you realize that you're completely alone in this vast and ominous cavern. But despite the terror that grips you, you know that you must press on, for the only way out is forward into the unknown.\n");
         text.addDescriptionText("\nYou realize with a start that you're standing in the heart of a vast, foreboding cavern, the walls towering high above you. The air is thick with the musty scent of damp earth, and the silence is punctuated only by the faint sound of dripping water. The darkness seems to press in on you from all sides, and a chill runs down your spine. You feel an overwhelming sense of fear and uncertainty, unsure of what dangers might lurk in the shadows. But even as you tremble with apprehension, you know that you must press on, your torch casting a flickering beam of light into the gloom as you set out into the unknown depths of the cave.\n");
         text.addDescriptionText("\nYou search every nook and cranny of the cavernous chamber, your heart pounding with the hope of finding some glimmer of hope or salvation. But as you scour the darkness, your torch flickering in the still air, you find nothing but rock and stone, the cold, unyielding walls of the cave closing in around you. Your fear begins to mount, a gnawing sense of dread filling your soul as you realize the enormity of your situation. There is no escape, no way out, no hope to be found in this desolate, forsaken place. You are alone with your torch, trapped in the belly of the earth, and the darkness threatens to swallow you whole.\n");
+        text.addDescriptionText("\nAs you survey your surroundings, an overwhelming sense of unease grips you. The only things your eyes can discern are the jagged rocks and earth surrounding you in this cavernous chamber. The silence is deafening, broken only by the sound of your own heartbeat echoing off the walls. The darkness seems to press in on you, suffocating and claustrophobic.\n");
+        text.addDescriptionText("\nAs you cast your gaze around the chamber, the only thing that catches your eye are the jagged outlines of rocks that loom menacingly in the dim light of your torch. The shadows seem to dance and writhe around you, and a chill runs down your spine as you realize just how alone and isolated you are in this desolate, underground expanse.\n");
+        text.addDescriptionText("\nYou scan the room, peering into the shadows with wary eyes. Suddenly, you spot a figure in the distance, causing your heart to race with fear. Your mind races with thoughts of the dangers that could be lurking in the cave. But as you draw closer, you realize that it's only a trick of the light. The figure is simply a jutting rock formation that had looked, for a moment, like something far more sinister. You breathe a sigh of relief, grateful that you are alone in this dark and dangerous place.\n");
+        text.addDescriptionText("\nAs you gaze around the chamber, you feel a strange sense of déjà vu. The rocky walls and eerie silence feel familiar, but you can't quite place where you've seen them before. Perhaps it's a distant memory from a past life, or maybe this cave holds secrets you're yet to uncover. Regardless, the feeling of uncertainty sends a shiver down your spine, and you proceed with caution.\n");
+        text.addDescriptionText("\nAs you glance around, a sudden sensation of calmness washes over you. You feel as though you are not alone in this cavern. Though you cannot see any signs of life, you feel the presence of some ancient force watching over you. A feeling of comfort fills your heart, giving you the courage to continue your journey.\n");
+
+        text.addNameText("You feel a jolt of relief as you recall your name, [NAME]. It's as if this small piece of information is grounding you in this unfamiliar and hostile environment.");
+        text.addNameText("You remember your name, [NAME], but you're not sure if it's a good thing. Perhaps ignorance was bliss, and you would be better off not knowing who you are.");
+        text.addNameText("As you remember your name, [NAME], you also recall bits and pieces of your past. However, everything feels hazy and unclear, as if you're trying to recall a dream.");
+        text.addNameText("As you look around the dark cave chamber, you remember your name, [NAME]. But what good does that do you now? The memory of your name offers no comfort in this moment.");
+
+        text.addStaminaText("Your legs tremble and your vision blurs. Your energy is draining fast. You can barely lift your torch to see where to go.");
+        text.addStaminaText("You are exhausted beyond measure. Your feet drag against the rocky floor as you struggle to keep moving forward.");
+        text.addStaminaText("Your body aches and your head feels heavy. Each step takes immense effort, but you muster up the strength to keep pushing on.");
+        text.addStaminaText("Your movements are slower now, and your breathing is labored. Your body protests every move, but your determination keeps you going.");
+        text.addStaminaText("Your mind feels refreshed, your body revitalized. You feel like you could run a marathon or leap over rocks, eager to find the exit.");
 
         text.addCrystalText("As you grip the crystal tightly, you sense that you are getting closer to your goal. Its radiant pulsations seem to be leading you towards the exit of this treacherous cave. With each step, the crystal's light intensifies, guiding you through the darkness.\n");
         text.addCrystalText("The crystal is pulsating at a reasonable frequency ,but you can feel a sense of unease creeping up within you. The walls of the cave seem to be closing in, and the shadows grow deeper with every step you take. The crystal's glow is your only source of hope, but its light isn't confident enough.\n");
@@ -390,12 +406,12 @@ public class Main {
         text.addCrystalText("You watch as the crystal's pulsations fade into nothingness, leaving you in complete darkness. Panic begins to set in, and you feel your heart pounding in your chest. The walls of the cave seem to be closing in on you, and the air grows thin and suffocating.\n");
         text.addCrystalText("The crystal in your hand barely pulsates, making you think if the faint pulsation is real or just your imagination. You feel completely lost. You stumble blindly through the darkness, your footfalls echoing off the cave walls. You are alone, afraid, and with no way of knowing whether you will ever find your way out of this wretched place.\n");
 
-        Item i1 = new Item("Shiny Metal", "A piece of a shiny metal.");
-        Item i2 = new Item("Diamond", "It's a diamond. It's value may be worth all your troubles.");
-        Item i3 = new Item("Bright Crystal", "You do not recognize.");
-        Item i4 = new Item("Memory of the Lonely Flower", "Gives you courage to continue.");
-        Item i5 = new Item("Precious Gemstone", "You don't know it's value.");
-        Item crystal = new Item("Weird Pulsating Crystal", "Sometimes it's light pulsates faster.");
+        Item i1 = new Item("Shiny Metal", "Your eyes catch a glimmer of light reflecting off a small piece of shiny metal.");
+        Item i2 = new Item("Diamond", "You see that it's a beautiful diamond, sparkling in the dim light. You realize that this precious gemstone could be worth a lot");
+        Item i3 = new Item("Bright Crystal", "It's very bright, bright enough, to make you feel like you're looking at a magical artifact.");
+        Item i4 = new Item("Memory of the Lonely Flower", "You remember how elegant was the flower to be blooming on a dark cave. That memory gives you hope to continue.");
+        Item i5 = new Item("Precious Gemstone", "You know that this is no ordinary object, but something of great importance. However, you are uncertain of its true value or purpose.");
+        Item crystal = new Item("Weird Pulsating Crystal", "You feel its rhythmic pulsations reverberate through your body. The light that emanates from within seems to guide you.");
         ChamberContent c1 = new ChamberContent("\nYour heart races as you scan the dimly-lit chamber for any sign of escape. Just when you think all is lost, a glimmer of hope catches your eye. A faint flicker of light dances on the walls. As you get closer, you see something that catches your interest.", 10, i1);
         ChamberContent c2 = new ChamberContent("\nAs you scour the shadowy chamber, your torch illuminating nothing but cold, unforgiving stone, you spy a glint of something in the distance. Heart racing, you move closer, your steps echoing in the silent chamber. And then, there it is - a small, glowing object, nestled among the rocks.", 30, i2);
         ChamberContent c3 = new ChamberContent("\nYour eyes strain against the darkness as you search the chamber for any sign of life. Just when you think all is lost, a faint glimmer catches your eye. You move closer, your heart pounding with excitement, until you see it - a shimmering crystal, glowing with an inner light.", 60, i3);
@@ -529,7 +545,7 @@ public class Main {
         int choice3;
         boolean check;
         int round = 0;
-        //player.addItem(crystal);
+        player.addItem(crystal);
         //need a reasonable condition (or maybe not)
         while(true){
             if (round != 0) {
@@ -591,7 +607,7 @@ public class Main {
                                     check = true;
                                 }
                                 if(player.getLocation().isExit() == true) {
-                                    playerInteraction.handlePlayerCheck(player);
+                                    playerInteraction.handlePlayerCheck(player, text.getNameText((int)randomInt(0, text.getNameList().size())), text.getStaminaList());
                                     playerInteraction.handleExitFound();
                                 }
                                 break;
@@ -602,7 +618,7 @@ public class Main {
                    }
                    break;
                 case "3":
-                    playerInteraction.handlePlayerCheck(player);
+                    playerInteraction.handlePlayerCheck(player, text.getNameText((int)randomInt(0, text.getNameList().size())), text.getStaminaList());
                     break;
                 case "help":
                     playerInteraction.handleHelp();

@@ -157,6 +157,7 @@ public class Cave
 		return -1;
 	}
 
+	//should not be used
 	public int findEscape(Chamber start){
 		int tunnelNumberCheck = 0;
 		Chamber exit = new Chamber();

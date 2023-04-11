@@ -38,8 +38,8 @@ public class Player
 
 	public void listItems(){
 		for ( Item item : items){
-			System.out.println("name: " + item.getName());
-			System.out.println("description: " + item.getDescription() + "\n");
+			System.out.println("A " + item.getName() + ":");
+			System.out.println(item.getDescription() + "\n");
 		}
 	}
 

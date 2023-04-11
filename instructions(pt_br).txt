@@ -2,14 +2,14 @@ Resumo do quê seria falado nos slides:
 1 - Apresentação geral
 2 - Apresentação da equipe
 3 - Ideia geral do sistema
-4 - (luis)
-5 - (luis)
-6 - (luis)
+4 - Definição curta do que são grafos e exemplos de problemas do mundo real que os algoritmos partem de algoritmos de grafos
+5 - Utilização de Grafos em aplicações topologicas e de representação Geografica, demonstração de que os grafos podem ser utilizados para representar uma caverna com exemplo real
+6 - Jogos que seguem mecânicas semelhantes ou ideias que serviram de expiração para o contexto geral do jogo
 7 - Tecnologias que foram utilizadas no desenvolvimento
 8 - Estrutura da caverna
-9 - (luis)
-10 - (luis)
-11 - (luis)
+9 - A caverna foi formulada como um grafo onde as arestas são os túneis que levam às câmaras (que são os vértices)
+10 - Exemplos de aplicação que o grafo desenvolvido pode ser utilizado, novamente o mapa de uma caverna real e mapas gerados por IA de cavernas aleatórias. Apresentação da problematização: Como gerar mapas novos aleatórios toda vez que o jogador usar o sistema?
+11 - Apresentação do algoritmo de Kruskal, explicação de como ele funciona e explicação de uma adaptação feita para gerar mapas aleatórios que sempre seja possível chegar em um vértice qualquer partindo de outro. O que garante que é sempre possível chegar a saída.
 12 - Jogabilidade e Aparência
 13 - Utilizamos como inspiração jogos antigos que eram principalmente textos e algumas poucas imagens utilizadas para ilustrar a situação.
 14 - Exemplo visual do jogo produzido

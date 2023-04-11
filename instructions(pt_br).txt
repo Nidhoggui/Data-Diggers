@@ -3,8 +3,8 @@ Resumo do quê seria falado nos slides:
 2 - Apresentação da equipe
 3 - Ideia geral do sistema
 4 - Definição curta do que são grafos e exemplos de problemas do mundo real que os algoritmos partem de algoritmos de grafos
-5 - Utilização de Grafos em aplicações topologicas e de representação Geografica, demonstração de que os grafos podem ser utilizados para representar uma caverna com exemplo real
-6 - Jogos que seguem mecânicas semelhantes ou ideias que serviram de expiração para o contexto geral do jogo
+5 - Utilização de Grafos em aplicações topológicas e de representação Geográfica, demonstração de que os grafos podem ser utilizados para representar uma caverna com exemplo real
+6 - Jogos que seguem mecânicas semelhantes ou ideias que serviram de inspiração para o contexto geral do jogo
 7 - Tecnologias que foram utilizadas no desenvolvimento
 8 - Estrutura da caverna
 9 - A caverna foi formulada como um grafo onde as arestas são os túneis que levam às câmaras (que são os vértices)

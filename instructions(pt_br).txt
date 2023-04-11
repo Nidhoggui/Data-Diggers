@@ -1,0 +1,43 @@
+Resumo do quê seria falado nos slides:
+1 - Apresentação geral
+2 - Apresentação da equipe
+3 - Ideia geral do sistema
+4 - (luis)
+5 - (luis)
+6 - (luis)
+7 - Tecnologias que foram utilizadas no desenvolvimento
+8 - Estrutura da caverna
+9 - (luis)
+10 - (luis)
+11 - (luis)
+12 - Jogabilidade e Aparência
+13 - Utilizamos como inspiração jogos antigos que eram principalmente textos e algumas poucas imagens utilizadas para ilustrar a situação.
+14 - Exemplo visual do jogo produzido
+15 - Player e sua classe em código
+16 - Item e sua classe em código
+17 - Texto e sua classe em código. Text possui vários arrays com textos. Text foi utilizado para dar randomicidade aos textos que aparecem na jogo.
+18 - Utilizamos o Algoritmo A*, mas não em grid, como normalmente é utilizado. Foi feita algumas alterações para acomodar as mecânicas do jogo mas o algoritmo final é parecido.
+19 - Controle de versões e metodologia de desenvolvimento
+20 - Utilizamos o Git para controle de versão
+21 - Utilizamos o Latex para documentação
+
+
+Instruções de como rodar o jogo:
+- extrair o arquivo compactado em uma pasta ou clonar o repositório git.
+git clone https://github.com/Nidhoggui/Data-Diggers
+
+- executar o arquivo run.sh na pasta raiz do projeto, através da pasta raiz do projeto
+cd Data-Diggers
+./run.sh
+
+
+Manual do jogo:
+Há 4 ações: checar a câmara atual por items ou outras coisas, checar a distância para uma câmara vizinha (para poupar stamina), ir a uma câmara vizinha e checar o jogador.
+O jogador possui stamina e score. Seu score é definido por items pegos na "partida" e a stamina é gasta com todas as ações em certas quantidades.
+O objetivo é sair da caverna com o maior score possível. Mas não seja ganancioso, ou você pode acabar sem conseguir sair da caverna, e tudo que foi pego não vale de nada para um morto.
+
+
+Observações:
+1. Há duas bibliotecas externas que foram utilizadas, JACo e Jasin. Ambas estão na pasta libraries que está na pasta raiz do projeto.
+2. O algoritmo A* do jogo retorna as unidades de distância da câmara atual em que o jogador se encontra até a câmara com a saída da caverna pelo caminho mais eficiente.
+3. O algoritmo A* só é utilizado por um item: Weird Pulsating Crystal. É um item que deve ser pego em uma das chamber pelo jogador. Mas, para testes, há como ativá-lo desde o início do jogo, é só "descomentar" a linha 548 da classe Main.

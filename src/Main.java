@@ -545,7 +545,7 @@ public class Main {
         int choice3;
         boolean check;
         int round = 0;
-        player.addItem(crystal);
+        //player.addItem(crystal);
         //need a reasonable condition (or maybe not)
         while(true){
             if (round != 0) {
@@ -618,7 +618,7 @@ public class Main {
                    }
                    break;
                 case "3":
-                    playerInteraction.handlePlayerCheck(player, text.getNameText((int)randomInt(0, text.getNameList().size())), text.getStaminaList());
+                    playerInteraction.handlePlayerCheck(player, text.getNameText((int)randomInt(1, text.getNameList().size())-1), text.getStaminaList());
                     break;
                 case "help":
                     playerInteraction.handleHelp();

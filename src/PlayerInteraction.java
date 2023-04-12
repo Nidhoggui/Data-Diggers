@@ -130,6 +130,7 @@ public class PlayerInteraction {
 		if(items.get(choice).isConsumable()) {
 			System.out.println("Que delícia, cara");
 			items.remove(choice);
+			player.setItems(items);
 			player.setStamina(player.getStamina() + 100 + value);
 		}else {
 			System.out.println("Aí zoou");

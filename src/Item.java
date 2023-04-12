@@ -4,11 +4,13 @@ public class Item
 	private String name;
 	private String description;
 	//private int value;
+	private boolean consumable;
 	
-	public Item(String name, String description)
+	public Item(String name, String description, boolean consumable)
 	{
 		this.name = name;
 		this.description = description;
+		this.consumable = consumable;
 	}
 	
 	public String getDescription() {
@@ -36,4 +38,11 @@ public class Item
 	 * 		this.value = value;
 	 * }
 	 */
+	public boolean isConsumable() {
+		return consumable;
+	}
+
+	public void setConsumable(boolean consumable) {
+		this.consumable = consumable;
+	}
 }

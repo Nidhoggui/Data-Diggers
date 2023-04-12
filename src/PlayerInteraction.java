@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
 
 public class PlayerInteraction {
 	
@@ -110,5 +111,28 @@ public class PlayerInteraction {
 	public void handleDeath(){
 		System.out.println("Unfortanely you died after passing out in the cold cave.");
 		System.exit(0);
+	}
+
+	public void handleConsumeItem(Player player) {
+		Scanner scanner = new Scanner(System.in);
+		Random rng = new Random();
+		int value = rng.nextInt(100);
+		System.out.println("Quer comer? Lhe dou, papai");
+		ArrayList<Item> items = player.getItems();
+		for(int i = 0; i < items.size(); i++) {
+			if(items.get(i).isConsumable()) {
+				System.out.println((i + 1) + ": " + items.get(i).getName() + " - " + items.get(i).getDescription());
+			}
+		}
+		System.out.println("Selecione o número da comida que queres, amegan");
+		int choice = scanner.nextInt();
+		choice--;
+		if(items.get(choice).isConsumable()) {
+			System.out.println("Que delícia, cara");
+			items.remove(choice);
+			player.setStamina(player.getStamina() + 100 + value);
+		}else {
+			System.out.println("Aí zoou");
+		}
 	}
 }

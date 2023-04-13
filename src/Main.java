@@ -406,24 +406,27 @@ public class Main {
         text.addCrystalText("You watch as the crystal's pulsations fade into nothingness, leaving you in complete darkness. Panic begins to set in, and you feel your heart pounding in your chest. The walls of the cave seem to be closing in on you, and the air grows thin and suffocating.\n");
         text.addCrystalText("The crystal in your hand barely pulsates, making you think if the faint pulsation is real or just your imagination. You feel completely lost. You stumble blindly through the darkness, your footfalls echoing off the cave walls. You are alone, afraid, and with no way of knowing whether you will ever find your way out of this wretched place.\n");
 
-        Item i1 = new Item("Shiny Metal", "Your eyes catch a glimmer of light reflecting off a small piece of shiny metal.");
-        Item i2 = new Item("Diamond", "You see that it's a beautiful diamond, sparkling in the dim light. You realize that this precious gemstone could be worth a lot");
-        Item i3 = new Item("Bright Crystal", "It's very bright, bright enough, to make you feel like you're looking at a magical artifact.");
-        Item i4 = new Item("Memory of the Lonely Flower", "You remember how elegant was the flower to be blooming on a dark cave. That memory gives you hope to continue.");
-        Item i5 = new Item("Precious Gemstone", "You know that this is no ordinary object, but something of great importance. However, you are uncertain of its true value or purpose.");
-        Item crystal = new Item("Weird Pulsating Crystal", "You feel its rhythmic pulsations reverberate through your body. The light that emanates from within seems to guide you.");
+        Item i1 = new Item("Shiny Metal", "Your eyes catch a glimmer of light reflecting off a small piece of shiny metal.", false);
+        Item i2 = new Item("Diamond", "You see that it's a beautiful diamond, sparkling in the dim light. You realize that this precious gemstone could be worth a lot", false);
+        Item i3 = new Item("Bright Crystal", "It's very bright, bright enough, to make you feel like you're looking at a magical artifact.", false);
+        Item i4 = new Item("Memory of the Lonely Flower", "You remember how elegant was the flower to be blooming on a dark cave. That memory gives you hope to continue.", false);
+        Item i5 = new Item("Precious Gemstone", "You know that this is no ordinary object, but something of great importance. However, you are uncertain of its true value or purpose.", false);
+        Item i6 = new Item("Dusty Glass Bottle Full of Unknown Liquid", "It's a old and dusty bottle with some liquid inside. You can't quite figure out what the liquid is, but it definitely isn't water.", true);
+        Item crystal = new Item("Weird Pulsating Crystal", "You feel its rhythmic pulsations reverberate through your body. The light that emanates from within seems to guide you.", false);
         ChamberContent c1 = new ChamberContent("\nYour heart races as you scan the dimly-lit chamber for any sign of escape. Just when you think all is lost, a glimmer of hope catches your eye. A faint flicker of light dances on the walls. As you get closer, you see something that catches your interest.", 10, i1);
         ChamberContent c2 = new ChamberContent("\nAs you scour the shadowy chamber, your torch illuminating nothing but cold, unforgiving stone, you spy a glint of something in the distance. Heart racing, you move closer, your steps echoing in the silent chamber. And then, there it is - a small, glowing object, nestled among the rocks.", 30, i2);
         ChamberContent c3 = new ChamberContent("\nYour eyes strain against the darkness as you search the chamber for any sign of life. Just when you think all is lost, a faint glimmer catches your eye. You move closer, your heart pounding with excitement, until you see it - a shimmering crystal, glowing with an inner light.", 60, i3);
         ChamberContent c4 = new ChamberContent("\nThe cavernous chamber seems empty, and you start to despair. But then, something catches your eye - a flash of movement, a flicker of color. You move closer, heart racing with hope, until you see what it is - a small, delicate flower, blooming in the midst of the darkness.", 20, i4);
         ChamberContent c5 = new ChamberContent("\nYou had given up all hope of finding anything in this bleak, desolate chamber. But then, something glimmers in the corner of your eye, and you turn to see what it is. A small, glittering object, hidden among the rocks, catches your eye. You pick it up, heart racing with excitement, and realize that it is a precious gemstone, glinting in the dim torchlight.", 100, i5);
         ChamberContent c6 = new ChamberContent("\nAs you search the chamber, your eyes catch a glimpse of something peculiar. It's a crystal pulsing like a radar, illuminating the surrounding rocks with its faint glow. You pick it up, curious about its purpose. Could it be the key to finding the way out of this treacherous cave? But as you hold it in your hand, you realize that you have no idea what this strange crystal does. You can't help but feel a sense of unease as you continue your search, it feels like the pulsing of the crystal is guiding you into the unknown depths of the cavern.", 150, crystal);
+        ChamberContent c7 = new ChamberContent("\nYou stumble upon an old, dusty glass bottle. It looks like it has been here for ages, forgotten by time. Inside, a strange liquid that seems to glow faintly in the dark. You can't quite figure out what it is.", 30, i6);
         text.addContentObject(c1);
         text.addContentObject(c2);
         text.addContentObject(c3);
         text.addContentObject(c4);
         text.addContentObject(c5);
         text.addContentObject(c6);
+        text.addContentObject(c7);
 
         // cave creation
         // Criando as câmaras
@@ -530,6 +533,7 @@ public class Main {
         System.out.print("\nWrite the name of your character: ");
         String name = a.nextLine();
         Player player = new Player(name, cave2.getChambers().get(0), 500);
+        player.setLastLocation(player.getLocation());
         PlayerInteraction playerInteraction = new PlayerInteraction(player);
         clearLines(3);
 
@@ -544,7 +548,8 @@ public class Main {
         String choice2;
         int choice3;
         boolean check;
-        int round = 0;
+        int round = 0; //int for how many round have passed
+        int chamberChangeTimes = 0; //int for how many times player have changed of chamber
         //player.addItem(crystal);
         //need a reasonable condition (or maybe not)
         while(true){
@@ -581,7 +586,17 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("\nThere are "+ player.getLocation().getConnections().size() +" paths surrounding you.\n");
-                    System.out.print("(1) Check where one of these paths seems to led to (costs 20 stamina)\n(2) Choose path to follow (stamina cost equivalent to distance)\nWhat will you so? ");
+                    if (chamberChangeTimes > 0) {
+                        int lastPath = -1;
+                        for (Tunnel tunnel : player.getLocation().getConnections()){
+                            if (tunnel.getDestiny() == player.getLastLocation() || tunnel.getOrigin() == player.getLastLocation()) {
+                                lastPath = player.getLocation().getConnections().indexOf(tunnel);
+                            }
+                        }
+                        System.out.println("It came to your senses that you came to this chamber through the " + (lastPath+1) + "º path.\n");
+                        player.setLastLocation(player.getLocation());
+                    }
+                    System.out.print("(1) Check where one of these paths seems to led to (costs 20 stamina)\n(2) Choose path to follow (stamina cost equivalent to distance)\nWhat will you do? ");
                     choice2 = a.nextLine();
                     switch (choice2) {
                         case "1":
@@ -606,8 +621,9 @@ public class Main {
                                     playerInteraction.handleGoToSelectedChamber(player, choice3-1);
                                     check = true;
                                 }
+                                chamberChangeTimes++;
                                 if(player.getLocation().isExit() == true) {
-                                    playerInteraction.handlePlayerCheck(player, text.getNameText((int)randomInt(0, text.getNameList().size())), text.getStaminaList());
+                                    playerInteraction.handlePlayerCheck(player, text.getNameText(((int)randomInt(1, text.getNameList().size()))-1), text.getStaminaList());
                                     playerInteraction.handleExitFound();
                                 }
                                 break;
@@ -619,6 +635,13 @@ public class Main {
                    break;
                 case "3":
                     playerInteraction.handlePlayerCheck(player, text.getNameText((int)randomInt(1, text.getNameList().size())-1), text.getStaminaList());
+                    char consume = 'a';
+                    System.out.print("\nDo you want to consume a item?[y/n]: ");
+                    consume = a.next().charAt(0);
+                    if (consume == 'y') {
+                        playerInteraction.handleConsumeItem(player);
+                    }
+                    a.nextLine();
                     break;
                 case "help":
                     playerInteraction.handleHelp();

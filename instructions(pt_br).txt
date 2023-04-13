@@ -41,3 +41,4 @@ Observações:
 1. Há duas bibliotecas externas que foram utilizadas, JACo e Jasin. Ambas estão na pasta libraries que está na pasta raiz do projeto.
 2. O algoritmo A* do jogo retorna as unidades de distância da câmara atual em que o jogador se encontra até a câmara com a saída da caverna pelo caminho mais eficiente.
 3. O algoritmo A* só é utilizado por um item: Weird Pulsating Crystal. É um item que deve ser pego em uma das chamber pelo jogador. Mas, para testes, há como ativá-lo desde o início do jogo, é só "descomentar" a linha 548 da classe Main.
+4. É recomendado jogar pelo terminal em uma resolução mais vertical do quê horizontal.

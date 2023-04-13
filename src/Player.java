@@ -4,6 +4,7 @@ public class Player
 {
 	private String name;
 	private Chamber location;
+	private Chamber lastLocation;
 	private int stamina;
 	private int score;
 	private ArrayList<Item> items = new ArrayList<Item>();
@@ -93,6 +94,12 @@ public class Player
 	public void setScore(int score) {
 		this.score = score;
 	}
-	
-	
+
+	public void setLastLocation(Chamber lastLocation) {
+		this.lastLocation = lastLocation;
+	}
+
+	public Chamber getLastLocation() {
+		return lastLocation;
+	}
 }

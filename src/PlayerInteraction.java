@@ -92,7 +92,7 @@ public class PlayerInteraction {
 	{
 	    Scanner scanner = new Scanner(System.in);
 	    System.out.print("Are you sure you want to exit the game?[Y/n]: ");
-	    char answer = scanner.nextLine().charAt(0);
+	    char answer = scanner.next().charAt(0);
 	    if (answer == 'Y' || answer == 'y') 
 	    {
 	        System.out.println("Quitting game...");
@@ -100,8 +100,11 @@ public class PlayerInteraction {
 	    }
 	}
 	public void handleExitFound() {
-		System.out.println("You've found the exit and managed to leave the cave. A cave that was never found again.");
+		Scanner a = new Scanner(System.in);
+		System.out.println("\nYou've found the exit and managed to leave the cave. A cave that was never found again.");
 		System.out.println("Continue to be made...");
+		System.out.println("\nPress \"ENTER\" to continue...");
+		a.nextLine();
 		System.exit(0);
 	}
 	public void handleHelp(){
@@ -109,7 +112,10 @@ public class PlayerInteraction {
 		System.out.println("quit game -> quit the game");
 	}
 	public void handleDeath(){
+		Scanner a = new Scanner(System.in);
 		System.out.println("Unfortanely you died after passing out in the cold cave.");
+		System.out.println("\nPress \"ENTER\" to continue...");
+		a.nextLine();
 		System.exit(0);
 	}
 
@@ -117,8 +123,17 @@ public class PlayerInteraction {
 		Scanner scanner = new Scanner(System.in);
 		Random rng = new Random();
 		int value = rng.nextInt(100);
+		ArrayList<Item> items = new ArrayList<>();
+		for (Item item : player.getItems()) {
+			if (item.isConsumable()) {
+				items.add(item);
+			}
+		}
+		if (items.size() == 0) {
+			System.out.println("You don't have nothing to consume.");
+			return;
+		}
 		System.out.println("Quer comer? Lhe dou, papai");
-		ArrayList<Item> items = player.getItems();
 		for(int i = 0; i < items.size(); i++) {
 			if(items.get(i).isConsumable()) {
 				System.out.println((i + 1) + ": " + items.get(i).getName() + " - " + items.get(i).getDescription());
@@ -127,7 +142,7 @@ public class PlayerInteraction {
 		System.out.println("Selecione o número da comida que queres, amegan");
 		int choice = scanner.nextInt();
 		choice--;
-		if(items.get(choice).isConsumable()) {
+		if(items.get(choice).isConsumable() && choice <= items.size()) {
 			System.out.println("Que delícia, cara");
 			items.remove(choice);
 			player.setItems(items);
